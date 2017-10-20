@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::resource('/fires', 'FiresController');
+
+Route::get('fires', 'FiresController@index');
+Route::get('fires/{id}', 'FiresController@show');
+Route::post('fires', 'FiresController@store');
+Route::put('fires/{fire}', 'FiresController@update');
+Route::delete('fires/{fire}', 'FiresController@delete');
+
+Route::post('searchfires', 'SearchController@searchfires');
+
+Route::get('autocomplete', 'SearchController@autoComplete');
