@@ -1,8 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-@include('layouts.partials.search')
-    
+    <div class="panel-group" id="accordion">
+    <div class="panel panel-default" id="panel1">
+        <div class="panel-heading">
+             <h4 class="panel-title">
+        <a data-toggle="collapse" data-target="#collapseOne" 
+           href="#collapseOne">
+          Search
+        </a>
+      </h4>
+
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">@include('layouts.partials.search')</div>
+        </div>
+    </div>
 <div class="panel panel-danger">
     <div class="panel-heading">Fires</div>
     <div class="panel-body"> 
@@ -101,3 +114,14 @@
     </div> {{-- panel panel-info  --}}
 @endsection
 
+<style>
+    .panel-heading a:after {
+        font-family:'Glyphicons Halflings';
+        content:"\e114";
+        float: right;
+        color: grey;
+    }
+    .panel-heading a.collapsed:after {
+        content:"\e080";
+    }
+</style>

@@ -69,18 +69,162 @@ jQuery(document).ready(function($) {
  
 
 // Without JQuery
-var slider = new Slider("#ex7");
 
-$("#ex7-enabled").click(function() {
-	if(this.checked) {
-		
-		slider.enable();
-	}
-	else {
-		slider.disable();
-	}
-});
 
+$("#dasi_slider_enabled").click(function(){
+    if(this.checked) {
+        dasi_slider.enable();
+    } else {
+        dasi_slider.disable();
+    }
+})
+$("#dasiki_ektasi_slider_enabled").click(function(){
+    if(this.checked) {
+        dasiki_ektasi_slider.enable();
+    } else {
+        dasiki_ektasi_slider.disable();
+    }
+})
+$("#alsi_slider_enabled").click(function(){
+    if(this.checked) {
+        alsi_slider.enable();
+    } else {
+        alsi_slider.disable();
+    }
+})
+$("#xort_ektaseis_slider_enabled").click(function(){
+    if(this.checked) {
+        xort_ektaseis_slider.enable();
+    } else {
+        xort_ektaseis_slider.disable();
+    }
+})
+$("#kalamia_valtoi_slider_enabled").click(function(){
+    if(this.checked) {
+        kalamia_valtoi_slider.enable();
+    } else {
+        kalamia_valtoi_slider.disable();
+    }
+})
+$("#georgikes_ektaseis_slider_enabled").click(function(){
+    if(this.checked) {
+        georgikes_ektaseis_slider.enable();
+    } else {
+        georgikes_ektaseis_slider.disable();
+    }
+})
+$("#ypolimata_kaliergion_slider_enabled").click(function(){
+    if(this.checked) {
+        ypolimata_kaliergion_slider.enable();
+    } else {
+        ypolimata_kaliergion_slider.disable();
+    }
+})
+$("#skoupidotopoi_slider_enabled").click(function(){
+    if(this.checked) {
+        skoupidotopoi_slider.enable();
+    } else {
+        skoupidotopoi_slider.disable();
+    }
+})
+$("#pirosvestiko_soma_slider_enabled").click(function(){
+    if(this.checked) {
+        pirosvestiko_soma_slider.enable();
+    } else {
+        pirosvestiko_soma_slider.disable();
+    }
+})
+$("#pezopora_tmimata_slider_enabled").click(function(){
+    if(this.checked) {
+        pezopora_tmimata_slider.enable();
+    } else {
+        pezopora_tmimata_slider.disable();
+    }
+})
+$("#ethelontes_slider_enabled").click(function(){
+    if(this.checked) {
+        ethelontes_slider.enable();
+    } else {
+        ethelontes_slider.disable();
+    }
+})
+$("#stratos_slider_enabled").click(function(){
+    if(this.checked) {
+        stratos_slider.enable();
+    } else {
+        stratos_slider.disable();
+    }
+})
+$("#alles_dinameis_slider_enabled").click(function(){
+    if(this.checked) {
+        alles_dinameis_slider.enable();
+    } else {
+        alles_dinameis_slider.disable();
+    }
+})
+$("#pirosvestika_oximata_slider_enabled").click(function(){
+    if(this.checked) {
+        pirosvestika_oximata_slider.enable();
+    } else {
+        pirosvestika_oximata_slider.disable();
+    }
+})
+$("#oximata_ota_slider_enabled").click(function(){
+    if(this.checked) {
+        oximata_ota_slider.enable();
+    } else {
+        oximata_ota_slider.disable();
+    }
+})
+$("#vitiofora_slider_enabled").click(function(){
+    if(this.checked) {
+        vitiofora_slider.enable();
+    } else {
+        vitiofora_slider.disable();
+    }
+})
+$("#mixanimata_slider_enabled").click(function(){
+    if(this.checked) {
+        mixanimata_slider.enable();
+    } else {
+        mixanimata_slider.disable();
+    }
+})
+$("#elikoptera_slider_enabled").click(function(){
+    if(this.checked) {
+        elikoptera_slider.enable();
+    } else {
+        elikoptera_slider.disable();
+    }
+})
+$("#CL415_slider_enabled").click(function(){
+    if(this.checked) {
+        CL415_slider.enable();
+    } else {
+        CL415_slider.disable();
+    }
+})
+$("#CL215_slider_enabled").click(function(){
+    if(this.checked) {
+        CL215_slider.enable();
+    } else {
+        CL215_slider.disable();
+    }
+})
+$("#PZL_slider_enabled").click(function(){
+    if(this.checked) {
+        PZL_slider.enable();
+    } else {
+        PZL_slider.disable();
+    }
+})
+$("#GRU_slider_enabled").click(function(){
+    if(this.checked) {
+        GRU_slider.enable();
+    } else {
+        GRU_slider.disable();
+    }
+})
 
     /* 
      * Run autocomplete
