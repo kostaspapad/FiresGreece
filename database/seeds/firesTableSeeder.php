@@ -8,7 +8,7 @@ class firesTableSeeder extends CsvSeeder
     public function __construct()
 	{
         $this->table = 'fires';
-        $this->insert_chunk_size = 100;
+        $this->insert_chunk_size = 500;
         $this->csv_delimiter = ',';
         $this->mapping = [
             0 => 'id',
@@ -44,8 +44,13 @@ class firesTableSeeder extends CsvSeeder
             30 =>'CL215',
             31 =>'PZL',
             32 =>'GRU',
+            33 =>'created_at',
+            34 =>'updated_at',
+            35 =>'geo_address_dimos',
+            36 =>'geo_latitude_dimos',
+            37 =>'geo_longitude_dimos'
         ];
-        $this->filename = base_path().'/database/seeds/csvs/fires13-16.csv';
+        $this->filename = base_path().'/database/seeds/csvs/fires_v4.csv';
 	}
 
 	public function run()

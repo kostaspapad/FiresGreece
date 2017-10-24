@@ -17,6 +17,9 @@
     <link href="{{ asset('css/bootstrap-timepicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-slider.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+        integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+        crossorigin=""/>
 </head>
 <body>
     <div id="app">
@@ -36,5 +39,9 @@
     <script type="text/javascript" src="{!! asset('js/bootstrap-number-input.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/bootstrap-slider.min.js') !!}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+        integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+        crossorigin=""></script>
+    <script type="text/javascript" src="{!! asset('js/markers.json') !!}"></script>
 </body>
 </html>

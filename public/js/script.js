@@ -1,5 +1,18 @@
 
 jQuery(document).ready(function($) {
+    initMap();
+      // Get init map geo data
+      //getInitGeoData(myIcon);
+    //   for ( var i=0; i < markers.length; ++i )
+    //   {
+    //    L.marker( [markers[i].lat, markers[i].lng], {icon: myIcon} )
+    //     .bindPopup( '<a href="' + markers[i].url + '" target="_blank">' + markers[i].name + '</a>' )
+    //     .addTo( map );
+    //   }
+
+
+
+
     $('.datepicker').datepicker();
     $('#timepicker1').timepicker({
         minuteStep: 1,
@@ -65,166 +78,160 @@ jQuery(document).ready(function($) {
     var PZL_slider = new Slider('#PZL_slider', {});
     var GRU_slider = new Slider('#GRU_slider', {});
 
-// With JQuery
- 
-
-// Without JQuery
-
-
-$("#dasi_slider_enabled").click(function(){
-    if(this.checked) {
-        dasi_slider.enable();
-    } else {
-        dasi_slider.disable();
-    }
-})
-$("#dasiki_ektasi_slider_enabled").click(function(){
-    if(this.checked) {
-        dasiki_ektasi_slider.enable();
-    } else {
-        dasiki_ektasi_slider.disable();
-    }
-})
-$("#alsi_slider_enabled").click(function(){
-    if(this.checked) {
-        alsi_slider.enable();
-    } else {
-        alsi_slider.disable();
-    }
-})
-$("#xort_ektaseis_slider_enabled").click(function(){
-    if(this.checked) {
-        xort_ektaseis_slider.enable();
-    } else {
-        xort_ektaseis_slider.disable();
-    }
-})
-$("#kalamia_valtoi_slider_enabled").click(function(){
-    if(this.checked) {
-        kalamia_valtoi_slider.enable();
-    } else {
-        kalamia_valtoi_slider.disable();
-    }
-})
-$("#georgikes_ektaseis_slider_enabled").click(function(){
-    if(this.checked) {
-        georgikes_ektaseis_slider.enable();
-    } else {
-        georgikes_ektaseis_slider.disable();
-    }
-})
-$("#ypolimata_kaliergion_slider_enabled").click(function(){
-    if(this.checked) {
-        ypolimata_kaliergion_slider.enable();
-    } else {
-        ypolimata_kaliergion_slider.disable();
-    }
-})
-$("#skoupidotopoi_slider_enabled").click(function(){
-    if(this.checked) {
-        skoupidotopoi_slider.enable();
-    } else {
-        skoupidotopoi_slider.disable();
-    }
-})
-$("#pirosvestiko_soma_slider_enabled").click(function(){
-    if(this.checked) {
-        pirosvestiko_soma_slider.enable();
-    } else {
-        pirosvestiko_soma_slider.disable();
-    }
-})
-$("#pezopora_tmimata_slider_enabled").click(function(){
-    if(this.checked) {
-        pezopora_tmimata_slider.enable();
-    } else {
-        pezopora_tmimata_slider.disable();
-    }
-})
-$("#ethelontes_slider_enabled").click(function(){
-    if(this.checked) {
-        ethelontes_slider.enable();
-    } else {
-        ethelontes_slider.disable();
-    }
-})
-$("#stratos_slider_enabled").click(function(){
-    if(this.checked) {
-        stratos_slider.enable();
-    } else {
-        stratos_slider.disable();
-    }
-})
-$("#alles_dinameis_slider_enabled").click(function(){
-    if(this.checked) {
-        alles_dinameis_slider.enable();
-    } else {
-        alles_dinameis_slider.disable();
-    }
-})
-$("#pirosvestika_oximata_slider_enabled").click(function(){
-    if(this.checked) {
-        pirosvestika_oximata_slider.enable();
-    } else {
-        pirosvestika_oximata_slider.disable();
-    }
-})
-$("#oximata_ota_slider_enabled").click(function(){
-    if(this.checked) {
-        oximata_ota_slider.enable();
-    } else {
-        oximata_ota_slider.disable();
-    }
-})
-$("#vitiofora_slider_enabled").click(function(){
-    if(this.checked) {
-        vitiofora_slider.enable();
-    } else {
-        vitiofora_slider.disable();
-    }
-})
-$("#mixanimata_slider_enabled").click(function(){
-    if(this.checked) {
-        mixanimata_slider.enable();
-    } else {
-        mixanimata_slider.disable();
-    }
-})
-$("#elikoptera_slider_enabled").click(function(){
-    if(this.checked) {
-        elikoptera_slider.enable();
-    } else {
-        elikoptera_slider.disable();
-    }
-})
-$("#CL415_slider_enabled").click(function(){
-    if(this.checked) {
-        CL415_slider.enable();
-    } else {
-        CL415_slider.disable();
-    }
-})
-$("#CL215_slider_enabled").click(function(){
-    if(this.checked) {
-        CL215_slider.enable();
-    } else {
-        CL215_slider.disable();
-    }
-})
-$("#PZL_slider_enabled").click(function(){
-    if(this.checked) {
-        PZL_slider.enable();
-    } else {
-        PZL_slider.disable();
-    }
-})
-$("#GRU_slider_enabled").click(function(){
-    if(this.checked) {
-        GRU_slider.enable();
-    } else {
-        GRU_slider.disable();
-    }
-})
+    $("#dasi_slider_enabled").click(function(){
+        if(this.checked) {
+            dasi_slider.enable();
+        } else {
+            dasi_slider.disable();
+        }
+    })
+    $("#dasiki_ektasi_slider_enabled").click(function(){
+        if(this.checked) {
+            dasiki_ektasi_slider.enable();
+        } else {
+            dasiki_ektasi_slider.disable();
+        }
+    })
+    $("#alsi_slider_enabled").click(function(){
+        if(this.checked) {
+            alsi_slider.enable();
+        } else {
+            alsi_slider.disable();
+        }
+    })
+    $("#xort_ektaseis_slider_enabled").click(function(){
+        if(this.checked) {
+            xort_ektaseis_slider.enable();
+        } else {
+            xort_ektaseis_slider.disable();
+        }
+    })
+    $("#kalamia_valtoi_slider_enabled").click(function(){
+        if(this.checked) {
+            kalamia_valtoi_slider.enable();
+        } else {
+            kalamia_valtoi_slider.disable();
+        }
+    })
+    $("#georgikes_ektaseis_slider_enabled").click(function(){
+        if(this.checked) {
+            georgikes_ektaseis_slider.enable();
+        } else {
+            georgikes_ektaseis_slider.disable();
+        }
+    })
+    $("#ypolimata_kaliergion_slider_enabled").click(function(){
+        if(this.checked) {
+            ypolimata_kaliergion_slider.enable();
+        } else {
+            ypolimata_kaliergion_slider.disable();
+        }
+    })
+    $("#skoupidotopoi_slider_enabled").click(function(){
+        if(this.checked) {
+            skoupidotopoi_slider.enable();
+        } else {
+            skoupidotopoi_slider.disable();
+        }
+    })
+    $("#pirosvestiko_soma_slider_enabled").click(function(){
+        if(this.checked) {
+            pirosvestiko_soma_slider.enable();
+        } else {
+            pirosvestiko_soma_slider.disable();
+        }
+    })
+    $("#pezopora_tmimata_slider_enabled").click(function(){
+        if(this.checked) {
+            pezopora_tmimata_slider.enable();
+        } else {
+            pezopora_tmimata_slider.disable();
+        }
+    })
+    $("#ethelontes_slider_enabled").click(function(){
+        if(this.checked) {
+            ethelontes_slider.enable();
+        } else {
+            ethelontes_slider.disable();
+        }
+    })
+    $("#stratos_slider_enabled").click(function(){
+        if(this.checked) {
+            stratos_slider.enable();
+        } else {
+            stratos_slider.disable();
+        }
+    })
+    $("#alles_dinameis_slider_enabled").click(function(){
+        if(this.checked) {
+            alles_dinameis_slider.enable();
+        } else {
+            alles_dinameis_slider.disable();
+        }
+    })
+    $("#pirosvestika_oximata_slider_enabled").click(function(){
+        if(this.checked) {
+            pirosvestika_oximata_slider.enable();
+        } else {
+            pirosvestika_oximata_slider.disable();
+        }
+    })
+    $("#oximata_ota_slider_enabled").click(function(){
+        if(this.checked) {
+            oximata_ota_slider.enable();
+        } else {
+            oximata_ota_slider.disable();
+        }
+    })
+    $("#vitiofora_slider_enabled").click(function(){
+        if(this.checked) {
+            vitiofora_slider.enable();
+        } else {
+            vitiofora_slider.disable();
+        }
+    })
+    $("#mixanimata_slider_enabled").click(function(){
+        if(this.checked) {
+            mixanimata_slider.enable();
+        } else {
+            mixanimata_slider.disable();
+        }
+    })
+    $("#elikoptera_slider_enabled").click(function(){
+        if(this.checked) {
+            elikoptera_slider.enable();
+        } else {
+            elikoptera_slider.disable();
+        }
+    })
+    $("#CL415_slider_enabled").click(function(){
+        if(this.checked) {
+            CL415_slider.enable();
+        } else {
+            CL415_slider.disable();
+        }
+    })
+    $("#CL215_slider_enabled").click(function(){
+        if(this.checked) {
+            CL215_slider.enable();
+        } else {
+            CL215_slider.disable();
+        }
+    })
+    $("#PZL_slider_enabled").click(function(){
+        if(this.checked) {
+            PZL_slider.enable();
+        } else {
+            PZL_slider.disable();
+        }
+    })
+    $("#GRU_slider_enabled").click(function(){
+        if(this.checked) {
+            GRU_slider.enable();
+        } else {
+            GRU_slider.disable();
+        }
+    })
 
     /* 
      * Run autocomplete
@@ -420,4 +427,90 @@ function showSuggestionsPerioxi(message) {
 function showSuggestionsDiefthinsi(message) {
     $("<div>").text(message).prependTo(".searchBoxDiefthinsi");
     $(".searchBoxDiefthinsi").scrollTop(0);
+}
+
+function initMap(){
+    var southWest = L.latLng(40.712, -74.227),  
+        northEast = L.latLng(40.774, -74.125),
+        mybounds = L.latLngBounds(southWest, northEast);
+
+    var map = L.map( 'map', {
+        center: [38.0, 25.0],
+        minZoom: 6,
+        maxZoom: 15,
+        zoom: 6,
+      })
+      
+      L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        subdomains: ['a', 'b', 'c'],
+      }).addTo( map )
+      
+    //   var myURL = jQuery( 'script[src$="leaf-demo.js"]' ).attr( 'src' ).replace( 'leaf-demo.js', '' )
+      
+    var myIcon = L.icon({
+        maxBounds: mybounds,
+        iconUrl: 'images/flame2.png',
+        iconRetinaUrl: 'images/flame2.png',
+        iconSize: [29, 24],
+        iconAnchor: [9, 21],
+        popupAnchor: [0, -14]
+    })
+      // Use this else the server responds with error status code 419
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    // Execute ajax request
+    $.ajax({
+        type: 'GET',
+        url: 'initgeodata',
+        dataType: 'json',
+
+        // If request is successfull
+        success: function (response) {
+            console.log(response);
+            
+            // for (var i=0; i< response.length; ++i){
+            //     console.log(response[i]);
+            // }
+            //${response[i].geo_address_dimos}\nTotal fires: ${response[i].total} 
+            for ( var i=0; i < response.length; ++i ){
+                var a = '<a onclick="moreFireInfo(\'' +  String(response[i].dimos) + '\')">asdasd </a>'
+                console.log(a);
+                L.marker( [response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon} )
+                    
+                    .bindPopup( a )
+                    .addTo( map );
+                }
+        },
+
+        // If request was not successfull
+        error: function (response) {
+            console.log(response);
+        }
+    });    
+}
+
+function moreFireInfo(dimos){
+    // Execute ajax request
+    $.ajax({
+        type: 'GET',
+        url: 'initgeodata',
+        dataType: 'json',
+
+        // If request is successfull
+        success: function (response) {
+            console.log(response);
+            
+            
+            $('#myModal').modal('show');
+        },
+        // If request was not successfull
+        error: function (response) {
+            console.log('error');
+        }
+    });
 }

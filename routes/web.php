@@ -23,6 +23,9 @@ Route::post('fires', 'FiresController@store');
 Route::put('fires/{fire}', 'FiresController@update');
 Route::delete('fires/{fire}', 'FiresController@delete');
 
+// Gets initial geolocation data
+Route::get('initgeodata', 'FiresController@getInitGeoData');
+
 Route::post('searchfires', 'SearchController@searchfires');
 
 Route::get('autocomplete', 'SearchController@autoComplete');

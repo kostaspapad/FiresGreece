@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Fire;
+use League\Geotools\Coordinate\Ellipsoid;
+use Toin0u\Geotools\Facade\Geotools;
 
 class FiresController extends Controller
 {
@@ -44,4 +47,22 @@ class FiresController extends Controller
            return 204;
        }
    
+       // Get initial for map, this function is executed when the page loads
+       public function getInitGeoData(){
+            $f = DB::table('fires')
+                    ->select('dimos', 
+                            DB::raw('count(dimos) as total'),
+                            'geo_address_dimos',
+                            'geo_latitude_dimos',
+                            'geo_longitude_dimos')
+                    ->whereNotNull('dimos')
+                    ->groupBy('dimos', 'geo_address_dimos', 'geo_latitude_dimos','geo_longitude_dimos')
+                    ->get();
+            return response()->json($f);
+       }
+
+       public function moreFireInfo($dimos){
+        //    $f = DB::table('fires')
+        //             ->select('')
+       }
 }

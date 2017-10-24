@@ -19,7 +19,8 @@
                 &nbsp;
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="/fires">Fires</a></li>
+                <li><a href="/maps">Fire Maps</a></li>
+                <li><a href="/fires">Fire Data</a></li>
                 <li><a href="/search">Search</a></li>
                 <li><a href="/about">About</a></li>
             </ul>
