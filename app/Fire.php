@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Gbrock\Table\Traits\Sortable;
 
 class Fire extends Model
 {

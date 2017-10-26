@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
     
     initMap();
 
+    
 
     $('.datepicker').datepicker();
     $('#timepicker1').timepicker({
@@ -422,21 +423,22 @@ function showSuggestionsDiefthinsi(message) {
 }
 
 function initMap(){
+    
     var southWest = L.latLng(40.712, -74.227),  
         northEast = L.latLng(40.774, -74.125),
         mybounds = L.latLngBounds(southWest, northEast);
 
     var map = L.map( 'map', {
         center: [38.0, 25.0],
-        minZoom: 6,
+        minZoom: 7,
         maxZoom: 15,
         zoom: 6,
-      })
-      
-      L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        subdomains: ['a', 'b', 'c'],
-      }).addTo( map )
+    })
+    
+    L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    subdomains: ['a', 'b', 'c'],
+    }).addTo( map )
       
     //   var myURL = jQuery( 'script[src$="leaf-demo.js"]' ).attr( 'src' ).replace( 'leaf-demo.js', '' )
       
@@ -465,13 +467,10 @@ function initMap(){
         success: function (response) {
             console.log(response);
             
-            // for (var i=0; i< response.length; ++i){
-            //     console.log(response[i]);
-            // }
-            //${response[i].geo_address_dimos}\nTotal fires: ${response[i].total} 
+            // Create popup for fire. Has onclick method for ajax request moreFireInfo()
             for ( var i=0; i < response.length; ++i ){
-                var a = '<a onclick="moreFireInfo(\'' +  String(response[i].dimos) + '\')">asdasd </a>'
-                console.log(a);
+                var a = '<a onclick="moreFireInfo(\'' +  String(response[i].dimos) + '\')">' + String(response[i].geo_address_dimos) + '\nTotal: ' + String(response[i].total) + '</a>'
+
                 L.marker( [response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon} )
                     
                     .bindPopup( a )
@@ -487,22 +486,29 @@ function initMap(){
 }
 
 function moreFireInfo(dimos){
+    var formData = {
+        loc: dimos
+    }
     // Execute ajax request
     $.ajax({
-        type: 'GET',
-        url: 'initgeodata',
-        dataType: 'json',
+        type: 'POST',
+        url: 'getcitiesdimos',
+        data: formData,
+        dataType: 'html',
 
         // If request is successfull
         success: function (response) {
             console.log(response);
             
+            $("#panel-container").html(response);
             
-            $('#myModal').modal('show');
         },
         // If request was not successfull
         error: function (response) {
-            console.log('error');
+            console.log('ajax error');
         }
     });
 }
+
+// GARBAGE
+//$('#myModal').modal('show');

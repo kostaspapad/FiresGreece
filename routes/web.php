@@ -26,6 +26,9 @@ Route::delete('fires/{fire}', 'FiresController@delete');
 // Gets initial geolocation data
 Route::get('initgeodata', 'FiresController@getInitGeoData');
 
+// Get fire info for location on map
+Route::post('getcitiesdimos', 'FiresController@getCitiesDimos');
+
 Route::post('searchfires', 'SearchController@searchfires');
 
 Route::get('autocomplete', 'SearchController@autoComplete');

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9d0b6e1dd13bba5cbb84785d76a7121",
+    "content-hash": "40faf1f395b9dd9caac31e1d2a1a45b2",
     "packages": [
         {
             "name": "crockett/csv-seeder",
@@ -540,6 +540,56 @@
             "time": "2015-09-04T04:13:30+00:00"
         },
         {
+            "name": "gbrock/laravel-table",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gbrock/laravel-table.git",
+                "reference": "6c953016e127502f0df857d1515a571863d01319"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gbrock/laravel-table/zipball/6c953016e127502f0df857d1515a571863d01319",
+                "reference": "6c953016e127502f0df857d1515a571863d01319",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gbrock\\Table\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Brock",
+                    "email": "contact@gbrock.com",
+                    "homepage": "http://gbrock.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Table functionality for Laravel models",
+            "keywords": [
+                "filtering",
+                "html",
+                "laravel",
+                "model",
+                "sorting",
+                "table"
+            ],
+            "time": "2016-12-21T07:52:44+00:00"
+        },
+        {
             "name": "guzzlehttp/ringphp",
             "version": "1.1.0",
             "source": {
@@ -774,16 +824,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.18",
+            "version": "v5.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21"
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1cc21baac11551377734b8c17ead17db4c34fe21",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c678100e84934ec85c9f8bc26bd0a60222682719",
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719",
                 "shasum": ""
             },
             "require": {
@@ -901,7 +951,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-10-19T12:50:26+00:00"
+            "time": "2017-10-25T19:10:45+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4911,7 +4961,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "gbrock/laravel-table": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

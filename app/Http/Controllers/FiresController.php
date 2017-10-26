@@ -61,8 +61,25 @@ class FiresController extends Controller
             return response()->json($f);
        }
 
-       public function moreFireInfo($dimos){
-        //    $f = DB::table('fires')
-        //             ->select('')
+       // User clicks on fire icon on map, return data for the location he clicked
+       public function getCitiesDimos(Request $request){
+            $loc = $request->input('loc');
+
+            $fires = DB::table('fires')
+                    ->select('id',
+                             'ypiresia',
+                             'nomos',
+                             'hm_arxi',
+                             'hm_telous',
+                             'dasarxio',
+                             'diefthinsi')
+                    ->where('dimos', '=', $loc)
+                    ->get();
+            
+            //return response()->json($f);
+            //$returnHTML = view('modal-body-view',[' info'=> $f])->render();
+            return view('layouts.partials.location_fire_table')->with('fires', $fires);
+           
        }
+
 }
