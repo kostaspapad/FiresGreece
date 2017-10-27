@@ -29,13 +29,13 @@
     <div class="col-md-3">  
         <div class="input-group">
             <span class="input-group-addon">Δασαρχίο</span>
-            <input type="text" id="perioxi" name="searchBoxDasarxio" class="form-control" aria-describedby="basic-addon1">
+            <input type="text" id="dasarxio" name="searchBoxDasarxio" class="form-control" aria-describedby="basic-addon1">
         </div>
     </div>
     <div class="col-md-3">  
         <div class="input-group">
             <span class="input-group-addon">Διεύθηνση</span>
-            <input type="text" id="perioxi" name="searchBoxDiefthinsi" class="form-control" aria-describedby="basic-addon1">
+            <input type="text" id="diefthinsi" name="searchBoxDiefthinsi" class="form-control" aria-describedby="basic-addon1">
         </div>
     </div>
 </div>
@@ -213,6 +213,6 @@
     </div>
 </div>
 </div>
-<button type="button" class="btn btn-primary btn-block">Search</button>
+<button id="searchBtn" type="button" class="btn btn-primary btn-block">Search</button>
 
 

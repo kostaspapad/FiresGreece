@@ -67,19 +67,15 @@ class FiresController extends Controller
 
             $fires = DB::table('fires')
                     ->select('id',
-                             'ypiresia',
-                             'nomos',
                              'hm_arxi',
                              'hm_telous',
-                             'dasarxio',
                              'diefthinsi')
                     ->where('dimos', '=', $loc)
                     ->get();
-            
+
             //return response()->json($f);
             //$returnHTML = view('modal-body-view',[' info'=> $f])->render();
-            return view('layouts.partials.location_fire_table')->with('fires', $fires);
-           
+            return view('layouts.partials.location_fire_table')->with('fires', $fires);   
        }
 
 }

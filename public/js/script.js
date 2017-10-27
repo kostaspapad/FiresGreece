@@ -1,10 +1,45 @@
 
 jQuery(document).ready(function($) {
     
-    
     initMap();
+    var searchObj = {
+        "ypiresia": null,
+        "nomos": null,
+        "dimos": null,
+        "perioxi": null,
+        "dasarxio": null,
+        "diefthinsi": null,
+        "hm_arxi": null,
+        "ora_arxi": null,
+        "hm_telous": null,
+        "ora_telous": null,
+        "dasi_slider": null,
+        "dasiki_ektasi_slider": null,
+        "alsi_slider": null,
+        "xort_ektaseis_slider": null,
+        "kalamia_valtoi_slider": null,
+        "georgikes_ektaseis_slider": null,
+        "ypolimata_kaliergion_slider": null,
+        "skoupidotopoi_slider": null,
+        "pirosvestiko_soma_slider": null,
+        "pezopora_tmimata_slider": null,
+        "ethelontes_slider": null,
+        "stratos_slider": null,
+        "alles_dinameis_slider": null,
+        "pirosvestika_oximata_slider": null,
+        "oximata_ota_slider": null,
+        "vitiofora_slider": null,
+        "mixanimata_slider": null,
+        "elikoptera_slider": null,
+        "CL415_slider": null,
+        "CL215_slider": null,
+        "PZL_slider": null,
+        "GRU_slider": null
+    };
 
-    
+    $( "#searchBtn" ).click(function() {
+        $()
+    });
 
     $('.datepicker').datepicker();
     $('#timepicker1').timepicker({
@@ -17,7 +52,34 @@ jQuery(document).ready(function($) {
         showMeridian: false,
         defaultTime: false
     });
+
+    $('#timepicker1').timepicker().on('changeTime.timepicker', function(e) {
+        console.log('The time is ' + e.time.value);
+        console.log('The hour is ' + e.time.hours);
+        console.log('The minute is ' + e.time.minutes);
+        console.log('The meridian is ' + e.time.meridian);
+        searchObj.ora_arxi = e.time.value;
+    });
     
+    $('#timepicker2').timepicker().on('changeTime.timepicker', function(e) {
+        console.log('The time is ' + e.time.value);
+        console.log('The hour is ' + e.time.hours);
+        console.log('The minute is ' + e.time.minutes);
+        console.log('The meridian is ' + e.time.meridian);
+        searchObj.ora_telous = e.time.value;
+    });
+
+    $('#datepicker1').datepicker()
+                     .on('change', function(e) {
+        // `e` here contains the extra attributes
+        alert("changed");
+    });
+    $('#datepicker2').datepicker()
+                     .on('change', function(e) {
+        // `e` here contains the extra attributes
+        //searchObj.hm_arxi 
+        alert(e);
+    });
     // Kameni ektasi
     $('#dasi').bootstrapNumber();
     $('#dasiki_ektasi').bootstrapNumber();
