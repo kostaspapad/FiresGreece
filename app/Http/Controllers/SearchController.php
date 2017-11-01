@@ -76,4 +76,11 @@ class SearchController extends Controller
             return 0;
         }
     }
+
+    public function searchfires(Request $request){
+        $date = $request->input('date');   // -> na erxete me allo format yyyy-mm-dd
+        $time = $request->input('time');
+        //dd($searchTerm['hm_arxi']);
+        //dd($request);
+    }
 }

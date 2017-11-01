@@ -9,7 +9,9 @@
 </button>
 <section id="sidebar" class="sidebar">
     <div class="pad-dbl">
-        <h1>Αναζήτηση</h1>
+    <br>
+    <br>
+        <button id="searchBtn" type="button" class="btn btn-primary btn-block">Αναζήτηση</button>
     </div>
     <nav class="menu">
         <ul class="menu-level1 no-style">

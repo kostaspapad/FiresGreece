@@ -2,46 +2,173 @@
 jQuery(document).ready(function($) {
     
     initMap();
-    var searchObj = {
+    // var searchObj = {
+    //     "ypiresia": null,
+    //     "nomos": null,
+    //     "dimos": null,
+    //     "perioxi": null,
+    //     "dasarxio": null,
+    //     "diefthinsi": null,
+
+    //     "hm_arxi": null,
+    //     "ora_arxi": null,
+    //     "hm_telous": null,
+    //     "ora_telous": null,
+        
+    //     "dasi_slider": null,
+    //     "dasiki_ektasi_slider": null,
+    //     "alsi_slider": null,
+    //     "xort_ektaseis_slider": null,
+    //     "kalamia_valtoi_slider": null,
+    //     "georgikes_ektaseis_slider": null,
+    //     "ypolimata_kaliergion_slider": null,
+    //     "skoupidotopoi_slider": null,
+        
+    //     "pirosvestiko_soma_slider": null,
+    //     "pezopora_tmimata_slider": null,
+    //     "ethelontes_slider": null,
+    //     "stratos_slider": null,
+    //     "alles_dinameis_slider": null,
+        
+    //     "pirosvestika_oximata_slider": null,
+    //     "oximata_ota_slider": null,
+    //     "vitiofora_slider": null,
+    //     "mixanimata_slider": null,
+        
+    //     "elikoptera_slider": null,
+    //     "CL415_slider": null,
+    //     "CL215_slider": null,
+    //     "PZL_slider": null,
+    //     "GRU_slider": null
+    // };
+
+    var locationSearch = {
         "ypiresia": null,
         "nomos": null,
         "dimos": null,
         "perioxi": null,
         "dasarxio": null,
-        "diefthinsi": null,
+        "diefthinsi": null
+    }
+    
+    var datetimeSearch = {
         "hm_arxi": null,
         "ora_arxi": null,
         "hm_telous": null,
-        "ora_telous": null,
-        "dasi_slider": null,
-        "dasiki_ektasi_slider": null,
-        "alsi_slider": null,
-        "xort_ektaseis_slider": null,
-        "kalamia_valtoi_slider": null,
-        "georgikes_ektaseis_slider": null,
-        "ypolimata_kaliergion_slider": null,
-        "skoupidotopoi_slider": null,
-        "pirosvestiko_soma_slider": null,
-        "pezopora_tmimata_slider": null,
-        "ethelontes_slider": null,
-        "stratos_slider": null,
-        "alles_dinameis_slider": null,
-        "pirosvestika_oximata_slider": null,
-        "oximata_ota_slider": null,
-        "vitiofora_slider": null,
-        "mixanimata_slider": null,
-        "elikoptera_slider": null,
-        "CL415_slider": null,
-        "CL215_slider": null,
-        "PZL_slider": null,
-        "GRU_slider": null
-    };
+        "ora_telous": null
+    }
+
+    var burnedLandSearch = {
+        "dasi": null,
+        "dasiki_ektasi": null,
+        "alsi": null,
+        "xort_ektaseis": null,
+        "kalamia_valtoi": null,
+        "georgikes_ektaseis": null,
+        "ypolimata_kaliergion": null,
+        "skoupidotopoi": null
+    }
+
+    var humanResourcesSearch = {
+        "pirosvestiko_soma": null,
+        "pezopora_tmimata": null,
+        "ethelontes": null,
+        "stratos": null,
+        "alles_dinameis": null
+    }
+
+    var landVehiclesSearch = {
+        "pirosvestika_oximata": null,
+        "oximata_ota": null,
+        "vitiofora": null,
+        "mixanimata": null
+    }
+
+    var airVehiclesSearch = {
+        "elikoptera": null,
+        "CL415": null,
+        "CL215": null,
+        "PZL": null,
+        "GRU": null
+    }
 
     $( "#searchBtn" ).click(function() {
-        $()
+        var formData = {
+            location:{
+                ypiresia: locationSearch['ypiresia'],
+                nomos: locationSearch['nomos'],
+                dimos: locationSearch['dimos'],
+                perioxi: locationSearch['perioxi'],
+                dasarxio: locationSearch['dasarxio'],
+                diefthinsi: locationSearch['diefthinsi']
+            },
+            date:{
+                hm_arxi: datetimeSearch['hm_arxi'],
+                hm_telous: datetimeSearch['hm_telous']
+            },
+            time:{
+                ora_arxi: datetimeSearch['ora_arxi'],
+                ora_telous: datetimeSearch['ora_telous']
+            },
+            burnedLand:{
+                dasi: burnedLandSearch['dasi'],
+                dasiki_ektasi: burnedLandSearch['dasiki_ektasi'],
+                alsi: burnedLandSearch['alsi'],
+                xort_ektaseis: burnedLandSearch['xort_ektaseis'],
+                kalamia_valtoi: burnedLandSearch['kalamia_valtoi'],
+                georgikes_ektaseis: burnedLandSearch['georgikes_ektaseis'],
+                ypolimata_kaliergion: burnedLandSearch['ypolimata_kaliergion'],
+                skoupidotopoi: burnedLandSearch['skoupidotopoi']
+            },
+            humanResources:{
+                pirosvestiko_soma: humanResourcesSearch['pirosvestiko_soma'],
+                pezopora_tmimata: humanResourcesSearch['pezopora_tmimata'],
+                ethelontes: humanResourcesSearch['ethelontes'],
+                stratos: humanResourcesSearch['stratos'],
+                alles_dinameis: humanResourcesSearch['alles_dinameis']
+            },
+            landVehicles:{
+                pirosvestika_oximata: landVehiclesSearch['pirosvestika_oximata'],
+                oximata_ota: landVehiclesSearch['oximata_ota'],
+                vitiofora: landVehiclesSearch['vitiofora'],
+                mixanimata: landVehiclesSearch['mixanimata']
+            },
+            airVehicles:{
+                elikoptera: airVehicleSearch['elikoptera'],
+                CL415: airVehicleSearch['CL415'],
+                CL215: airVehicleSearch['CL215'],
+                PZL: airVehicleSearch['PZL'],
+                GRU: airVehicleSearch['GRU']
+            }
+        }
+        
+        // Debug
+        console.log(formData.date.hm_arxi);
+        console.log(formData.date.hm_telous);
+        console.log(formData.time.ora_arxi);
+        console.log(formData.time.ora_telous);
+        // Execute ajax request
+        $.ajax({
+            type: 'POST',
+            url: 'searchfires',
+            data: formData,
+            dataType: 'html',
+    
+            // If request is successfull
+            success: function (response) {
+                console.log(response);
+                
+                $("#panel-container").html(response);
+                
+            },
+            // If request was not successfull
+            error: function (response) {
+                console.log('ajax error');
+            }
+        });
     });
 
-    $('.datepicker').datepicker();
+    // Init timepickers
     $('#timepicker1').timepicker({
         minuteStep: 1,
         showMeridian: false,
@@ -54,29 +181,30 @@ jQuery(document).ready(function($) {
     });
 
     $('#timepicker1').timepicker().on('changeTime.timepicker', function(e) {
-        console.log('The time is ' + e.time.value);
-        console.log('The hour is ' + e.time.hours);
-        console.log('The minute is ' + e.time.minutes);
-        console.log('The meridian is ' + e.time.meridian);
-        searchObj.ora_arxi = e.time.value;
+        // console.log('The time is ' + e.time.value);
+        // console.log('The hour is ' + e.time.hours);
+        // console.log('The minute is ' + e.time.minutes);
+        // console.log('The meridian is ' + e.time.meridian);
+        datetimeSearch.ora_arxi = e.time.value;
     });
     
     $('#timepicker2').timepicker().on('changeTime.timepicker', function(e) {
-        console.log('The time is ' + e.time.value);
-        console.log('The hour is ' + e.time.hours);
-        console.log('The minute is ' + e.time.minutes);
-        console.log('The meridian is ' + e.time.meridian);
-        searchObj.ora_telous = e.time.value;
+        // console.log('The time is ' + e.time.value);
+        // console.log('The hour is ' + e.time.hours);
+        // console.log('The minute is ' + e.time.minutes);
+        // console.log('The meridian is ' + e.time.meridian);
+        datetimeSearch.ora_telous = e.time.value;
     });
 
-    $('#datepicker1').datepicker()
-                     .on('change', function(e) {
-        // `e` here contains the extra attributes
-        searchObj.hm_arxi = $('#datepicker1').val();
+    // Init datepickers
+    $('.datepicker').datepicker();
+
+    $('#datepicker1').datepicker().on('change', function(e) {
+        datetimeSearch.hm_arxi = $('#datepicker1').val();
     });
-    $('#datepicker2').datepicker()
-                     .on('change', function(e) {
-        searchObj.hm_telous = $('#datepicker2').val();
+
+    $('#datepicker2').datepicker().on('change', function(e) {
+        datetimeSearch.hm_telous = $('#datepicker2').val();
     });
     // Kameni ektasi
     $('#dasi').bootstrapNumber();
