@@ -1,4 +1,4 @@
-<nav id="top-nav-bar" class="navbar navbar-default navbar-static-top" role="navigation">
+<nav id="top-nav-bar" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0px">
     <div class="container">
         <div class="navbar-header">
             <!-- Collapsed Hamburger -->

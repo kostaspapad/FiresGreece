@@ -1,3 +1,6 @@
+
+    
+
 <div class="row">
     <div class="col-md-3">
         <div class="input-group">
@@ -216,3 +219,27 @@
 <button id="searchBtn" type="button" class="btn btn-primary btn-block">Search</button>
 
 
+
+
+
+<style>
+#demo {
+    -webkit-transition: width 2s ease;
+    -moz-transition: width 2s ease;
+    -o-transition: width 2s ease;
+    transition: width 2s ease;
+    
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    background: yellow;
+    vertical-align: middle;
+    line-height: 30px;
+    height: 30px;
+
+    width: 0px;
+}
+#demo.in {
+    width: 220px;
+}
+</style>

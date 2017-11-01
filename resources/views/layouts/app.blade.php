@@ -24,16 +24,13 @@
 <body>
     <div id="app">
         @include('inc.navbar')
-        <div class="container">
             @yield('content')
-        </div>
     </div>
-    <div class="container text-center">
-    <hr/>
 </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script> 
     <script type="text/javascript" src="{!! asset('js/script.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/sidebar.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/bootstrap-datepicker.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/bootstrap-timepicker.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/bootstrap-number-input.js') !!}"></script>

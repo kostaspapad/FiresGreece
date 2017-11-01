@@ -72,13 +72,11 @@ jQuery(document).ready(function($) {
     $('#datepicker1').datepicker()
                      .on('change', function(e) {
         // `e` here contains the extra attributes
-        alert("changed");
+        searchObj.hm_arxi = $('#datepicker1').val();
     });
     $('#datepicker2').datepicker()
                      .on('change', function(e) {
-        // `e` here contains the extra attributes
-        //searchObj.hm_arxi 
-        alert(e);
+        searchObj.hm_telous = $('#datepicker2').val();
     });
     // Kameni ektasi
     $('#dasi').bootstrapNumber();
@@ -110,183 +108,207 @@ jQuery(document).ready(function($) {
 
     // Sliders
     // With JQuery
-    var dasi_slider = new Slider('#dasi_slider', {});
-    var dasiki_ektasi_slider = new Slider('#dasiki_ektasi_slider', {});
-    var alsi_slider = new Slider('#alsi_slider', {});
-    var xort_ektaseis_slider = new Slider('#xort_ektaseis_slider', {});
-    var kalamia_valtoi_slider = new Slider('#kalamia_valtoi_slider', {});
-    var georgikes_ektaseis_slider = new Slider('#georgikes_ektaseis_slider', {});
-    var ypolimata_kaliergion_slider = new Slider('#ypolimata_kaliergion_slider', {});
-    var skoupidotopoi_slider = new Slider('#skoupidotopoi_slider', {});
-    var pirosvestiko_soma_slider = new Slider('#pirosvestiko_soma_slider', {});
-    var pezopora_tmimata_slider = new Slider('#pezopora_tmimata_slider', {});
-    var ethelontes_slider = new Slider('#ethelontes_slider', {});
-    var stratos_slider = new Slider('#stratos_slider', {});
-    var alles_dinameis_slider = new Slider('#alles_dinameis_slider', {});
-    var pirosvestika_oximata_slider = new Slider('#pirosvestika_oximata_slider', {});    
-    var oximata_ota_slider = new Slider('#oximata_ota_slider', {});    
-    var vitiofora_slider = new Slider('#vitiofora_slider', {});    
-    var mixanimata_slider = new Slider('#mixanimata_slider', {});    
-    var elikoptera_slider = new Slider('#elikoptera_slider', {});
-    var CL415_slider = new Slider('#CL415_slider', {});
-    var CL215_slider = new Slider('#CL215_slider', {});
-    var PZL_slider = new Slider('#PZL_slider', {});
-    var GRU_slider = new Slider('#GRU_slider', {});
+    // var dasi_slider = new Slider('#dasi_slider', {});
+    // var dasiki_ektasi_slider = new Slider('#dasiki_ektasi_slider', {});
+    // var alsi_slider = new Slider('#alsi_slider', {});
+    // var xort_ektaseis_slider = new Slider('#xort_ektaseis_slider', {});
+    // var kalamia_valtoi_slider = new Slider('#kalamia_valtoi_slider', {});
+    // var georgikes_ektaseis_slider = new Slider('#georgikes_ektaseis_slider', {});
+    // var ypolimata_kaliergion_slider = new Slider('#ypolimata_kaliergion_slider', {});
+    // var skoupidotopoi_slider = new Slider('#skoupidotopoi_slider', {});
+    // var pirosvestiko_soma_slider = new Slider('#pirosvestiko_soma_slider', {});
+    // var pezopora_tmimata_slider = new Slider('#pezopora_tmimata_slider', {});
+    // var ethelontes_slider = new Slider('#ethelontes_slider', {});
+    // var stratos_slider = new Slider('#stratos_slider', {});
+    // var alles_dinameis_slider = new Slider('#alles_dinameis_slider', {});
+    // var pirosvestika_oximata_slider = new Slider('#pirosvestika_oximata_slider', {});    
+    // var oximata_ota_slider = new Slider('#oximata_ota_slider', {});    
+    // var vitiofora_slider = new Slider('#vitiofora_slider', {});    
+    // var mixanimata_slider = new Slider('#mixanimata_slider', {});    
+    // var elikoptera_slider = new Slider('#elikoptera_slider', {});
+    // var CL415_slider = new Slider('#CL415_slider', {});
+    // var CL215_slider = new Slider('#CL215_slider', {});
+    // var PZL_slider = new Slider('#PZL_slider', {});
+    // var GRU_slider = new Slider('#GRU_slider', {});
 
-    $("#dasi_slider_enabled").click(function(){
-        if(this.checked) {
-            dasi_slider.enable();
-        } else {
-            dasi_slider.disable();
-        }
-    })
-    $("#dasiki_ektasi_slider_enabled").click(function(){
-        if(this.checked) {
-            dasiki_ektasi_slider.enable();
-        } else {
-            dasiki_ektasi_slider.disable();
-        }
-    })
-    $("#alsi_slider_enabled").click(function(){
-        if(this.checked) {
-            alsi_slider.enable();
-        } else {
-            alsi_slider.disable();
-        }
-    })
-    $("#xort_ektaseis_slider_enabled").click(function(){
-        if(this.checked) {
-            xort_ektaseis_slider.enable();
-        } else {
-            xort_ektaseis_slider.disable();
-        }
-    })
-    $("#kalamia_valtoi_slider_enabled").click(function(){
-        if(this.checked) {
-            kalamia_valtoi_slider.enable();
-        } else {
-            kalamia_valtoi_slider.disable();
-        }
-    })
-    $("#georgikes_ektaseis_slider_enabled").click(function(){
-        if(this.checked) {
-            georgikes_ektaseis_slider.enable();
-        } else {
-            georgikes_ektaseis_slider.disable();
-        }
-    })
-    $("#ypolimata_kaliergion_slider_enabled").click(function(){
-        if(this.checked) {
-            ypolimata_kaliergion_slider.enable();
-        } else {
-            ypolimata_kaliergion_slider.disable();
-        }
-    })
-    $("#skoupidotopoi_slider_enabled").click(function(){
-        if(this.checked) {
-            skoupidotopoi_slider.enable();
-        } else {
-            skoupidotopoi_slider.disable();
-        }
-    })
-    $("#pirosvestiko_soma_slider_enabled").click(function(){
-        if(this.checked) {
-            pirosvestiko_soma_slider.enable();
-        } else {
-            pirosvestiko_soma_slider.disable();
-        }
-    })
-    $("#pezopora_tmimata_slider_enabled").click(function(){
-        if(this.checked) {
-            pezopora_tmimata_slider.enable();
-        } else {
-            pezopora_tmimata_slider.disable();
-        }
-    })
-    $("#ethelontes_slider_enabled").click(function(){
-        if(this.checked) {
-            ethelontes_slider.enable();
-        } else {
-            ethelontes_slider.disable();
-        }
-    })
-    $("#stratos_slider_enabled").click(function(){
-        if(this.checked) {
-            stratos_slider.enable();
-        } else {
-            stratos_slider.disable();
-        }
-    })
-    $("#alles_dinameis_slider_enabled").click(function(){
-        if(this.checked) {
-            alles_dinameis_slider.enable();
-        } else {
-            alles_dinameis_slider.disable();
-        }
-    })
-    $("#pirosvestika_oximata_slider_enabled").click(function(){
-        if(this.checked) {
-            pirosvestika_oximata_slider.enable();
-        } else {
-            pirosvestika_oximata_slider.disable();
-        }
-    })
-    $("#oximata_ota_slider_enabled").click(function(){
-        if(this.checked) {
-            oximata_ota_slider.enable();
-        } else {
-            oximata_ota_slider.disable();
-        }
-    })
-    $("#vitiofora_slider_enabled").click(function(){
-        if(this.checked) {
-            vitiofora_slider.enable();
-        } else {
-            vitiofora_slider.disable();
-        }
-    })
-    $("#mixanimata_slider_enabled").click(function(){
-        if(this.checked) {
-            mixanimata_slider.enable();
-        } else {
-            mixanimata_slider.disable();
-        }
-    })
-    $("#elikoptera_slider_enabled").click(function(){
-        if(this.checked) {
-            elikoptera_slider.enable();
-        } else {
-            elikoptera_slider.disable();
-        }
-    })
-    $("#CL415_slider_enabled").click(function(){
-        if(this.checked) {
-            CL415_slider.enable();
-        } else {
-            CL415_slider.disable();
-        }
-    })
-    $("#CL215_slider_enabled").click(function(){
-        if(this.checked) {
-            CL215_slider.enable();
-        } else {
-            CL215_slider.disable();
-        }
-    })
-    $("#PZL_slider_enabled").click(function(){
-        if(this.checked) {
-            PZL_slider.enable();
-        } else {
-            PZL_slider.disable();
-        }
-    })
-    $("#GRU_slider_enabled").click(function(){
-        if(this.checked) {
-            GRU_slider.enable();
-        } else {
-            GRU_slider.disable();
-        }
-    })
+    // $("[data-toggle='toggle']").click(function() {
+    //     var selector = $(this).data("target");
+    //     $(selector).toggleClass('in');
+    // });
+    // $("#dasi_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         dasi_slider.enable();
+    //     } else {
+    //         dasi_slider.disable();
+    //         searchObj.dasi_slider = null;
+    //     }
+    // })
+    // $("#dasi_slider_enabled").on('slideStop', function(e) {
+    //     // searchObj.dasi_slider = ($this).slider('getValue');
+    //     alert('a');
+    // });
+    // $('#dasi_slider_enabled').slider().on('change', function(event) {
+    //     var a = event.value.newValue;
+    //     var b = event.value.oldValue;
+    
+    //     var changed = !($.inArray(a[0], b) !== -1 && 
+    //                     $.inArray(a[1], b) !== -1 && 
+    //                     $.inArray(b[0], a) !== -1 && 
+    //                     $.inArray(b[1], a) !== -1 && 
+    //                     a.length === b.length);
+    
+    //     if(changed ) {
+    //         console.log('changed');
+    //     }
+    // });
+    
+    // $("#dasiki_ektasi_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         dasiki_ektasi_slider.enable();
+    //     } else {
+    //         dasiki_ektasi_slider.disable();
+    //     }
+    // })
+    // $("#alsi_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         alsi_slider.enable();
+    //     } else {
+    //         alsi_slider.disable();
+    //     }
+    // })
+    // $("#xort_ektaseis_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         xort_ektaseis_slider.enable();
+    //     } else {
+    //         xort_ektaseis_slider.disable();
+    //     }
+    // })
+    // $("#kalamia_valtoi_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         kalamia_valtoi_slider.enable();
+    //     } else {
+    //         kalamia_valtoi_slider.disable();
+    //     }
+    // })
+    // $("#georgikes_ektaseis_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         georgikes_ektaseis_slider.enable();
+    //     } else {
+    //         georgikes_ektaseis_slider.disable();
+    //     }
+    // })
+    // $("#ypolimata_kaliergion_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         ypolimata_kaliergion_slider.enable();
+    //     } else {
+    //         ypolimata_kaliergion_slider.disable();
+    //     }
+    // })
+    // $("#skoupidotopoi_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         skoupidotopoi_slider.enable();
+    //     } else {
+    //         skoupidotopoi_slider.disable();
+    //     }
+    // })
+    // $("#pirosvestiko_soma_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         pirosvestiko_soma_slider.enable();
+    //     } else {
+    //         pirosvestiko_soma_slider.disable();
+    //     }
+    // })
+    // $("#pezopora_tmimata_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         pezopora_tmimata_slider.enable();
+    //     } else {
+    //         pezopora_tmimata_slider.disable();
+    //     }
+    // })
+    // $("#ethelontes_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         ethelontes_slider.enable();
+    //     } else {
+    //         ethelontes_slider.disable();
+    //     }
+    // })
+    // $("#stratos_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         stratos_slider.enable();
+    //     } else {
+    //         stratos_slider.disable();
+    //     }
+    // })
+    // $("#alles_dinameis_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         alles_dinameis_slider.enable();
+    //     } else {
+    //         alles_dinameis_slider.disable();
+    //     }
+    // })
+    // $("#pirosvestika_oximata_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         pirosvestika_oximata_slider.enable();
+    //     } else {
+    //         pirosvestika_oximata_slider.disable();
+    //     }
+    // })
+    // $("#oximata_ota_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         oximata_ota_slider.enable();
+    //     } else {
+    //         oximata_ota_slider.disable();
+    //     }
+    // })
+    // $("#vitiofora_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         vitiofora_slider.enable();
+    //     } else {
+    //         vitiofora_slider.disable();
+    //     }
+    // })
+    // $("#mixanimata_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         mixanimata_slider.enable();
+    //     } else {
+    //         mixanimata_slider.disable();
+    //     }
+    // })
+    // $("#elikoptera_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         elikoptera_slider.enable();
+    //     } else {
+    //         elikoptera_slider.disable();
+    //     }
+    // })
+    // $("#CL415_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         CL415_slider.enable();
+    //     } else {
+    //         CL415_slider.disable();
+    //     }
+    // })
+    // $("#CL215_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         CL215_slider.enable();
+    //     } else {
+    //         CL215_slider.disable();
+    //     }
+    // })
+    // $("#PZL_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         PZL_slider.enable();
+    //     } else {
+    //         PZL_slider.disable();
+    //     }
+    // })
+    // $("#GRU_slider_enabled").click(function(){
+    //     if(this.checked) {
+    //         GRU_slider.enable();
+    //     } else {
+    //         GRU_slider.disable();
+    //     }
+    // })
 
     /* 
      * Run autocomplete
