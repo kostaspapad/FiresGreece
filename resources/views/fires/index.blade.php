@@ -9,9 +9,10 @@
 </button>
 <section id="sidebar" class="sidebar">
     <div class="pad-dbl">
-    <br>
-    <br>
+        <br>
         <button id="searchBtn" type="button" class="btn btn-primary btn-block">Αναζήτηση</button>
+        <br>
+        <button id="resetBtn" type="button" class="btn btn-warning btn-block">Reset</button>
     </div>
     <nav class="menu">
         <ul class="menu-level1 no-style">
@@ -179,7 +180,7 @@ body.sidebar-show {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .5);
-    z-index: 5000;
+    z-index: 1500;
     overflow: hidden;
 }
 
@@ -192,7 +193,7 @@ body.sidebar-show {
     background: #FFF;
     color: #333;
     transform: translate(-700px);
-    z-index: 5001;
+    z-index: 1501;
 }
 
 .sidebar.show {
@@ -209,7 +210,7 @@ body.sidebar-show {
     border-radius: 99px;
     top: 0px;
     transform: translate(10px);
-    z-index: 5002
+    z-index: 1502
 }
 
 .sidebar-btn.sidebar-show {

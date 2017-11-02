@@ -1,3 +1,47 @@
+
+<div class="row">
+    <div class="col-md-4">
+        <label class="control-label">ΠΥΡΟΣ. ΟΧΗΜ:</label>
+    </div>
+    <div class="col-md-4">
+        <label class="control-label">ΟΧΗΜ. ΟΤΑ:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-2">
+                Από:
+            </div>
+            <div class="col-md-2">
+                <p><span id="landveh-pirosvestika-oximata-output">0</span></p>
+            </div>
+            <div class="col-md-8">
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="324" value="0" class="slider-start" data-type="pirosvestika_oximata" id="landveh-dasi">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-2">
+                Έως:
+            </div>
+            <div class="col-md-2">
+                <p><span id="landveh-oximata-ota-output">0</span></p>
+            </div>
+            <div class="col-md-8">
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="60" value="0" class="slider-end" data-type="oximata_ota" id="landveh-oximata-ota">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---
 <div class="row">
     <div class="col-md-6">
     {{--  <div class="form-group">  --}}
@@ -31,3 +75,4 @@
     </div>  --}}
     </div>
 </div>
+-->

@@ -1,4 +1,46 @@
 <div class="row">
+    <div class="col-md-4">
+        <label class="control-label">ΕΛΙΚΟ-ΠΤΕΡΑ:</label>
+    </div>
+    <div class="col-md-4">
+        <label class="control-label">Α/Φ CL415:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-2">
+                Από:
+            </div>
+            <div class="col-md-2">
+                <p><span id="airveh-elikoptera-output">0</span></p>
+            </div>
+            <div class="col-md-8">
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="7" value="0" class="slider-start" data-type="elikoptera" id="airveh-elikoptera">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-2">
+                Έως:
+            </div>
+            <div class="col-md-2">
+                <p><span id="airveh-CL415-output">0</span></p>
+            </div>
+            <div class="col-md-8">
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="10" value="0" class="slider-end" data-type="CL415" id="airveh-CL415">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---
+<div class="row">
     <div class="col-md-6">
     {{--  <div class="form-group">  --}}
         <label class="control-label">ΕΛΙΚΟ-ΠΤΕΡΑ:</label>
@@ -37,3 +79,4 @@
     </div>  --}}
     </div>
 </div>
+-->

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Elasticsearch\ClientBuilder;
-
+use DB;
 class SearchController extends Controller
 {
     public function autoComplete(Request $request){
@@ -80,7 +80,30 @@ class SearchController extends Controller
     public function searchfires(Request $request){
         $date = $request->input('date');   // -> na erxete me allo format yyyy-mm-dd
         $time = $request->input('time');
-        //dd($searchTerm['hm_arxi']);
-        //dd($request);
+        $query = array();
+        
+        
+        foreach ($request->all() as $key => $value) {
+            //dd($value);
+            foreach ($value as $key2 => $data){
+                // dd($value);
+                if($data != null){
+                    $query[$key2] = $data;
+                }
+            }
+
+        }
+        dd($query);
+        $f = DB::table('fires')
+                ->select('dimos', 
+                        DB::raw('count(dimos) as total'),
+                        'geo_address_dimos',
+                        'geo_latitude_dimos',
+                        'geo_longitude_dimos')
+                ->whereNotNull('dimos')
+                ->where($query)
+                ->groupBy('dimos', 'geo_address_dimos', 'geo_latitude_dimos','geo_longitude_dimos')
+                ->get();
+        return response()->json($f);
     }
 }

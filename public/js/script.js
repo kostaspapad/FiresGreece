@@ -92,16 +92,233 @@ jQuery(document).ready(function($) {
         "GRU": null
     }
 
+    var dasi_slider = document.getElementById('dasi'),
+        dasiki_ektasi_slider = document.getElementById('dasiki-ektasi'),
+        alsi_slider = document.getElementById('alsi'),
+        xort_ektaseis_slider = document.getElementById('xort-ektaseis'),
+        kalamia_valtoi_slider = document.getElementById('kalamia-valtoi'),
+        georgikes_ektaseis_slider = document.getElementById('georgikes-ektaseis'),
+        ypolimata_kaliergion_slider = document.getElementById('ypolimata-kaliergion'),
+        skoupidotopoi_slider = document.getElementById('skoupidotopoi');
+
+    noUiSlider.create(dasi_slider, {
+        start: [ 4000, 17000 ],
+        range: {
+            'min': [  0 ],
+            'max': [ 21800 ]
+        }
+    });
+    var dasi_nodes = [
+        document.getElementById('dasi-output-min'),
+        document.getElementById('dasi-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    dasi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+        dasi_nodes[handle].innerHTML = values[handle];
+    });
+
+    noUiSlider.create(dasiki_ektasi_slider, {
+        start: [ 4000, 25000 ],
+        range: {
+            'min': [  0 ],
+            'max': [ 35000 ]
+        }
+    });
+    var dasiki_ektasi_nodes = [
+        document.getElementById('dasiki-ektasi-output-min'),
+        document.getElementById('dasiki-ektasi-output-max')
+    ];
+
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    dasiki_ektasi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+        dasiki_ektasi_nodes[handle].innerHTML = values[handle];
+    });
+
+    noUiSlider.create(alsi_slider, {
+        start: [ 4000, 17000 ],
+        range: {
+            'min': [  0 ],
+            'max': [ 100 ]
+        }
+    });
+    var alsi_nodes = [
+        document.getElementById('alsi-output-min'),
+        document.getElementById('alsi-output-max')
+    ];
+    
+    
+    
+    
+    
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    alsi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+        alsi_nodes[handle].innerHTML = values[handle];
+    });
+    noUiSlider.create(xort_ektaseis_slider, {
+        start: [ 4000, 17000 ],
+        range: {
+            'min': [  0 ],
+            'max': [ 13000 ]
+        }
+    });
+    var xort_ektaseis_nodes = [
+        document.getElementById('xort-ektaseis-output-min'),
+        document.getElementById('xort-ektaseis-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    xort_ektaseis_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+        xort_ektaseis_nodes[handle].innerHTML = values[handle];
+    });
+    noUiSlider.create(kalamia_valtoi_slider, {
+        start: [ 4000, 17000 ],
+        range: {
+            'min': [  0 ],
+            'max': [ 4990 ]
+        }
+    });
+    var kalamia_valtoi_nodes = [
+        document.getElementById('kalamia-valtoi-output-min'),
+        document.getElementById('kalamia-valtoi-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    kalamia_valtoi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+        kalamia_valtoi_nodes[handle].innerHTML = values[handle];
+    });
+    noUiSlider.create(georgikes_ektaseis_slider, {
+        start: [ 4000, 17000 ],
+        range: {
+            'min': [  0 ],
+            'max': [ 20000 ]
+        }
+    });
+    var georgikes_ektaseis_nodes = [
+        document.getElementById('georgikes-ektaseis-output-min'),
+        document.getElementById('georgikes-ektaseis-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    georgikes_ektaseis_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+        georgikes_ektaseis_nodes[handle].innerHTML = values[handle];
+    });
+    noUiSlider.create(ypolimata_kaliergion_slider, {
+        start: [ 4000, 17000 ],
+        range: {
+            'min': [  0 ],
+            'max': [ 5000 ]
+        }
+    });
+    var ypolimata_kaliergion_nodes = [
+        document.getElementById('ypolimata-kaliergion-output-min'),
+        document.getElementById('ypolimata-kaliergion-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    ypolimata_kaliergion_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+        ypolimata_kaliergion_nodes[handle].innerHTML = values[handle];
+    });
+    noUiSlider.create(skoupidotopoi_slider, {
+        start: [ 4000, 17000 ],
+        range: {
+            'min': [  0 ],
+            'max': [ 100 ]
+        }
+    });
+    var skoupidotopoi_nodes = [
+        document.getElementById('skoupidotopoi-output-min'),
+        document.getElementById('skoupidotopoi-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    skoupidotopoi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+        skoupidotopoi_nodes[handle].innerHTML = values[handle];
+    });
+
+
+
+
+   /*
+    * When user changes the slider, the sliders id is saved and the '-output'
+    * string is appended at the end to create the id of the sliders output <p>
+    * component. After that the <p> element is selected by id and the the html
+    * is changed.
+    */
+    // $('.slider-start').on('input', function(e){
+    //     var output_id = $(this).attr('id') + '-output';
+    //     $('#' + output_id).html($(e.target).val());
+        
+    //     // To find where it belongs (prosopiko, kameni ektasi, etc...)
+    //     type = output_id.split('-')[0];
+    //     var subVar = $(this).attr('data-type');
+
+    //     if(type == 'kammenes'){
+    //         burnedLandSearch[subVar] = $(e.target).val();
+    //         console.log(burnedLandSearch);
+    //     } else if (type == 'prosopiko'){
+    //         humanResourcesSearch[subVar] = $(e.target).val();
+    //         console.log(humanResourcesSearch);
+    //     } else if (type == 'landveh'){
+    //         landVehiclesSearch[subVar] = $(e.target).val();
+    //         console.log(landVehiclesSearch);
+    //     } else if (type == 'airveh'){
+    //         airVehiclesSearch[subVar] = $(e.target).val();
+    //         console.log(airVehiclesSearch);
+    //     }
+    // });
+
+
+    // $('.slider-end').on('input', function(e){
+    //     var output_id = $(this).attr('id') + '-output';
+    //     $('#' + output_id).html($(e.target).val());
+        
+    //     // To find where it belongs (prosopiko, kameni ektasi, etc...)
+    //     type = output_id.split('-')[0];
+    //     var subVar = $(this).attr('data-type');
+
+    //     if(type == 'kammenes'){
+    //         burnedLandSearch[subVar] = $(e.target).val();
+    //         console.log(burnedLandSearch);
+    //     } else if (type == 'prosopiko'){
+    //         humanResourcesSearch[subVar] = $(e.target).val();
+    //         console.log(humanResourcesSearch);
+    //     } else if (type == 'landveh'){
+    //         landVehiclesSearch[subVar] = $(e.target).val();
+    //         console.log(landVehiclesSearch);
+    //     } else if (type == 'airveh'){
+    //         airVehiclesSearch[subVar] = $(e.target).val();
+    //         console.log(airVehiclesSearch);
+    //     }
+    // });
+
+
+
     $( "#searchBtn" ).click(function() {
+        // console.log(locationSearch);
+        console.log(datetimeSearch);
+        // console.log(burnedLandSearch);
+        // console.log(humanResourcesSearch);
+        // console.log(landVehiclesSearch);
+        // console.log(airVehiclesSearch);
         var formData = {
-            location:{
-                ypiresia: locationSearch['ypiresia'],
-                nomos: locationSearch['nomos'],
-                dimos: locationSearch['dimos'],
-                perioxi: locationSearch['perioxi'],
-                dasarxio: locationSearch['dasarxio'],
-                diefthinsi: locationSearch['diefthinsi']
-            },
+            // location:{
+            //     ypiresia: locationSearch['ypiresia'],
+            //     nomos: locationSearch['nomos'],
+            //     dimos: locationSearch['dimos'],
+            //     perioxi: locationSearch['perioxi'],
+            //     dasarxio: locationSearch['dasarxio'],
+            //     diefthinsi: locationSearch['diefthinsi']
+            // },
             date:{
                 hm_arxi: datetimeSearch['hm_arxi'],
                 hm_telous: datetimeSearch['hm_telous']
@@ -109,39 +326,44 @@ jQuery(document).ready(function($) {
             time:{
                 ora_arxi: datetimeSearch['ora_arxi'],
                 ora_telous: datetimeSearch['ora_telous']
-            },
-            burnedLand:{
-                dasi: burnedLandSearch['dasi'],
-                dasiki_ektasi: burnedLandSearch['dasiki_ektasi'],
-                alsi: burnedLandSearch['alsi'],
-                xort_ektaseis: burnedLandSearch['xort_ektaseis'],
-                kalamia_valtoi: burnedLandSearch['kalamia_valtoi'],
-                georgikes_ektaseis: burnedLandSearch['georgikes_ektaseis'],
-                ypolimata_kaliergion: burnedLandSearch['ypolimata_kaliergion'],
-                skoupidotopoi: burnedLandSearch['skoupidotopoi']
-            },
-            humanResources:{
-                pirosvestiko_soma: humanResourcesSearch['pirosvestiko_soma'],
-                pezopora_tmimata: humanResourcesSearch['pezopora_tmimata'],
-                ethelontes: humanResourcesSearch['ethelontes'],
-                stratos: humanResourcesSearch['stratos'],
-                alles_dinameis: humanResourcesSearch['alles_dinameis']
-            },
-            landVehicles:{
-                pirosvestika_oximata: landVehiclesSearch['pirosvestika_oximata'],
-                oximata_ota: landVehiclesSearch['oximata_ota'],
-                vitiofora: landVehiclesSearch['vitiofora'],
-                mixanimata: landVehiclesSearch['mixanimata']
-            },
-            airVehicles:{
-                elikoptera: airVehicleSearch['elikoptera'],
-                CL415: airVehicleSearch['CL415'],
-                CL215: airVehicleSearch['CL215'],
-                PZL: airVehicleSearch['PZL'],
-                GRU: airVehicleSearch['GRU']
             }
+            // burnedLand:{
+            //     dasi: burnedLandSearch['dasi'],
+            //     dasiki_ektasi: burnedLandSearch['dasiki_ektasi'],
+            //     alsi: burnedLandSearch['alsi'],
+            //     xort_ektaseis: burnedLandSearch['xort_ektaseis'],
+            //     kalamia_valtoi: burnedLandSearch['kalamia_valtoi'],
+            //     georgikes_ektaseis: burnedLandSearch['georgikes_ektaseis'],
+            //     ypolimata_kaliergion: burnedLandSearch['ypolimata_kaliergion'],
+            //     skoupidotopoi: burnedLandSearch['skoupidotopoi']
+            // },
+            // humanResources:{
+            //     pirosvestiko_soma: humanResourcesSearch['pirosvestiko_soma'],
+            //     pezopora_tmimata: humanResourcesSearch['pezopora_tmimata'],
+            //     ethelontes: humanResourcesSearch['ethelontes'],
+            //     stratos: humanResourcesSearch['stratos'],
+            //     alles_dinameis: humanResourcesSearch['alles_dinameis']
+            // },
+            // landVehicles:{
+            //     pirosvestika_oximata: landVehiclesSearch['pirosvestika_oximata'],
+            //     oximata_ota: landVehiclesSearch['oximata_ota'],
+            //     vitiofora: landVehiclesSearch['vitiofora'],
+            //     mixanimata: landVehiclesSearch['mixanimata']
+            // },
+            // airVehicles:{
+            //     elikoptera: airVehicleSearch['elikoptera'],
+            //     CL415: airVehicleSearch['CL415'],
+            //     CL215: airVehicleSearch['CL215'],
+            //     PZL: airVehicleSearch['PZL'],
+            //     GRU: airVehicleSearch['GRU']
+            // }
         }
         
+        
+        $( "#resetBtn" ).click(function() {
+            resetSearch();
+        });
+
         // Debug
         console.log(formData.date.hm_arxi);
         console.log(formData.date.hm_telous);
@@ -168,70 +390,109 @@ jQuery(document).ready(function($) {
         });
     });
 
-    // Init timepickers
-    $('#timepicker1').timepicker({
-        minuteStep: 1,
-        showMeridian: false,
-        defaultTime: false
-    });
-    $('#timepicker2').timepicker({
-        minuteStep: 1,
-        showMeridian: false,
-        defaultTime: false
-    });
+    // // Init timepickers
+    // $('#timepicker1').timepicker({
+    //     minuteStep: 1,
+    //     showMeridian: false,
+    //     defaultTime: false
+    // });
+    // $('#timepicker2').timepicker({
+    //     minuteStep: 1,
+    //     showMeridian: false,
+    //     defaultTime: false
+    // });
 
-    $('#timepicker1').timepicker().on('changeTime.timepicker', function(e) {
-        // console.log('The time is ' + e.time.value);
-        // console.log('The hour is ' + e.time.hours);
-        // console.log('The minute is ' + e.time.minutes);
-        // console.log('The meridian is ' + e.time.meridian);
-        datetimeSearch.ora_arxi = e.time.value;
-    });
+    // $('#timepicker1').timepicker().on('changeTime.timepicker', function(e) {
+    //     // console.log('The time is ' + e.time.value);
+    //     // console.log('The hour is ' + e.time.hours);
+    //     // console.log('The minute is ' + e.time.minutes);
+    //     // console.log('The meridian is ' + e.time.meridian);
+    //     datetimeSearch.ora_arxi = e.time.value;
+    // });
     
-    $('#timepicker2').timepicker().on('changeTime.timepicker', function(e) {
-        // console.log('The time is ' + e.time.value);
-        // console.log('The hour is ' + e.time.hours);
-        // console.log('The minute is ' + e.time.minutes);
-        // console.log('The meridian is ' + e.time.meridian);
-        datetimeSearch.ora_telous = e.time.value;
+    // $('#timepicker2').timepicker().on('changeTime.timepicker', function(e) {
+    //     // console.log('The time is ' + e.time.value);
+    //     // console.log('The hour is ' + e.time.hours);
+    //     // console.log('The minute is ' + e.time.minutes);
+    //     // console.log('The meridian is ' + e.time.meridian);
+    //     datetimeSearch.ora_telous = e.time.value;
+    // });
+        
+    $('#rangepicker').daterangepicker({
+        showDropdowns: true,
+        minDate: '02/01/2013',
+        maxDate: '12/29/2017',
+        timePicker: true,
+        timePicker24Hour: true,
+        timePickerIncrement: 10,
+        autoUpdateInput: true,
+        locale: {
+            cancelLabel: 'Προεπιλογή',
+            format: 'MM-DD-YYYY HH:mm',
+            applyLabel: 'Καταχώριση',
+            fromLabel: 'Από',
+            toLabel: 'Μέχρι',
+            customRangeLabel: 'Custom Range',
+            //daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr','Sa'],
+            daysOfWeek: ['Δευ', 'Τρ', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ','Κυρ'],
+            //monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            monthNames: ['Ιαν', 'Φεβ', 'Μαρ', 'Απρ', 'Μαι', 'Ιουν', 'Ιουλ', 'Αυγ', 'Σεπτ', 'Οκτ', 'Νοεμ', 'Δεκ'],
+            firstDay: 0
+        }
+    });
+     
+    $('#rangepicker').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY HH:mm') + ' - ' + picker.endDate.format('MM/DD/YYYY HH:mm'));
+        
+        datetimeSearch.hm_arxi = picker.startDate.format('DD-MM-YYYY');
+        datetimeSearch.hm_telous = picker.endDate.format('DD-MM-YYYY');
+        
+        timeStart = picker.startDate.format('HH:mm');
+        timeEnd = picker.endDate.format('HH:mm');
+        if(timeStart != '00:00'){
+            datetimeSearch.ora_arxi = picker.startDate.format('HH:mm');
+        }
+        if(timeEnd != '23:00'){
+            datetimeSearch.ora_telous = picker.endDate.format('HH:mm');
+        }
+
+        console.log(datetimeSearch);
     });
 
-    // Init datepickers
-    $('.datepicker').datepicker();
-
-    $('#datepicker1').datepicker().on('change', function(e) {
-        datetimeSearch.hm_arxi = $('#datepicker1').val();
+    $('#rangepicker').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
     });
+        
 
-    $('#datepicker2').datepicker().on('change', function(e) {
-        datetimeSearch.hm_telous = $('#datepicker2').val();
-    });
-    // Kameni ektasi
-    $('#dasi').bootstrapNumber();
-    $('#dasiki_ektasi').bootstrapNumber();
-    $('#alsi').bootstrapNumber();
-    $('#xort_ektaseis').bootstrapNumber();
-    $('#kalamia_valtoi').bootstrapNumber();
-    $('#georgikes_ektaseis').bootstrapNumber();
-    $('#ypolimata_kaliergion').bootstrapNumber();
-    $('#skoupidotopoi').bootstrapNumber();
-    // Prosopiko
-    $('#pirosvestiko_soma').bootstrapNumber();
-    $('#pezopora_tmimata').bootstrapNumber();
-    $('#ethelontes').bootstrapNumber();
-    $('#stratos').bootstrapNumber();
-    $('#alles_dinameis').bootstrapNumber();
-    // Oximata
-    $('#pirosvestika_oximata').bootstrapNumber();
-    $('#oximata_ota').bootstrapNumber();
-    $('#vitiofora').bootstrapNumber();
-    $('#mixanimata').bootstrapNumber();
-    // Enaeria    
-    $('#elikoptera').bootstrapNumber();
-    $('#CL415').bootstrapNumber();
-    $('#CL215').bootstrapNumber();
-    $('#PZL').bootstrapNumber();
-    $('#GRU').bootstrapNumber();
+
+
+    
+    // // Kameni ektasi
+    // $('#dasi').bootstrapNumber();
+    // $('#dasiki_ektasi').bootstrapNumber();
+    // $('#alsi').bootstrapNumber();
+    // $('#xort_ektaseis').bootstrapNumber();
+    // $('#kalamia_valtoi').bootstrapNumber();
+    // $('#georgikes_ektaseis').bootstrapNumber();
+    // $('#ypolimata_kaliergion').bootstrapNumber();
+    // $('#skoupidotopoi').bootstrapNumber();
+    // // Prosopiko
+    // $('#pirosvestiko_soma').bootstrapNumber();
+    // $('#pezopora_tmimata').bootstrapNumber();
+    // $('#ethelontes').bootstrapNumber();
+    // $('#stratos').bootstrapNumber();
+    // $('#alles_dinameis').bootstrapNumber();
+    // // Oximata
+    // $('#pirosvestika_oximata').bootstrapNumber();
+    // $('#oximata_ota').bootstrapNumber();
+    // $('#vitiofora').bootstrapNumber();
+    // $('#mixanimata').bootstrapNumber();
+    // // Enaeria    
+    // $('#elikoptera').bootstrapNumber();
+    // $('#CL415').bootstrapNumber();
+    // $('#CL215').bootstrapNumber();
+    // $('#PZL').bootstrapNumber();
+    // $('#GRU').bootstrapNumber();
 
 
     // Sliders
@@ -722,5 +983,58 @@ function moreFireInfo(dimos){
     });
 }
 
-// GARBAGE
-//$('#myModal').modal('show');
+function resetSearch(){
+    var locationSearch = {
+        "ypiresia": null,
+        "nomos": null,
+        "dimos": null,
+        "perioxi": null,
+        "dasarxio": null,
+        "diefthinsi": null
+    }
+    
+    var datetimeSearch = {
+        "hm_arxi": null,
+        "ora_arxi": null,
+        "hm_telous": null,
+        "ora_telous": null
+    }
+
+    var burnedLandSearch = {
+        "dasi": null,
+        "dasiki_ektasi": null,
+        "alsi": null,
+        "xort_ektaseis": null,
+        "kalamia_valtoi": null,
+        "georgikes_ektaseis": null,
+        "ypolimata_kaliergion": null,
+        "skoupidotopoi": null
+    }
+
+    var humanResourcesSearch = {
+        "pirosvestiko_soma": null,
+        "pezopora_tmimata": null,
+        "ethelontes": null,
+        "stratos": null,
+        "alles_dinameis": null
+    }
+
+    var landVehiclesSearch = {
+        "pirosvestika_oximata": null,
+        "oximata_ota": null,
+        "vitiofora": null,
+        "mixanimata": null
+    }
+
+    var airVehiclesSearch = {
+        "elikoptera": null,
+        "CL415": null,
+        "CL215": null,
+        "PZL": null,
+        "GRU": null
+    }
+
+    $('#rangepicker').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+}
