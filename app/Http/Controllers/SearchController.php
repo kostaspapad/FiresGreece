@@ -78,32 +78,41 @@ class SearchController extends Controller
     }
 
     public function searchfires(Request $request){
-        $date = $request->input('date');   // -> na erxete me allo format yyyy-mm-dd
-        $time = $request->input('time');
+        // $date = $request->input('date');   // -> na erxete me allo format yyyy-mm-dd
+        // $time = $request->input('time');
+
         $query = array();
         
-        
-        foreach ($request->all() as $key => $value) {
-            //dd($value);
-            foreach ($value as $key2 => $data){
-                // dd($value);
-                if($data != null){
-                    $query[$key2] = $data;
+        // dd($request);
+        foreach ($request->all() as $key => $value1) {
+            // Look for fields that are not date or time
+            if($key != 'date' && $key != 'time'){
+                foreach ($value1 as $key2 => $value2){
+                    
+                    if($value2['low'] != null && $value2['high'] != null){
+                        $query[$key2] = $value2;
+                    }
+                }
+            } else {
+                // Here loop for datetime fields and if find null dont insert it
+                foreach ($value1 as $datekey => $value){
+                    if($value != null){
+                        $query[$datekey] = $value;
+                    }
                 }
             }
-
         }
         dd($query);
-        $f = DB::table('fires')
-                ->select('dimos', 
-                        DB::raw('count(dimos) as total'),
-                        'geo_address_dimos',
-                        'geo_latitude_dimos',
-                        'geo_longitude_dimos')
-                ->whereNotNull('dimos')
-                ->where($query)
-                ->groupBy('dimos', 'geo_address_dimos', 'geo_latitude_dimos','geo_longitude_dimos')
-                ->get();
-        return response()->json($f);
+        // $f = DB::table('fires')
+        //         ->select('dimos', 
+        //                 DB::raw('count(dimos) as total'),
+        //                 'geo_address_dimos',
+        //                 'geo_latitude_dimos',
+        //                 'geo_longitude_dimos')
+        //         ->whereNotNull('dimos')
+        //         ->where($query)
+        //         ->groupBy('dimos', 'geo_address_dimos', 'geo_latitude_dimos','geo_longitude_dimos')
+        //         ->get();
+        // return response()->json($f);
     }
 }

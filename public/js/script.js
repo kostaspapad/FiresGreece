@@ -2,45 +2,6 @@
 jQuery(document).ready(function($) {
     
     initMap();
-    // var searchObj = {
-    //     "ypiresia": null,
-    //     "nomos": null,
-    //     "dimos": null,
-    //     "perioxi": null,
-    //     "dasarxio": null,
-    //     "diefthinsi": null,
-
-    //     "hm_arxi": null,
-    //     "ora_arxi": null,
-    //     "hm_telous": null,
-    //     "ora_telous": null,
-        
-    //     "dasi_slider": null,
-    //     "dasiki_ektasi_slider": null,
-    //     "alsi_slider": null,
-    //     "xort_ektaseis_slider": null,
-    //     "kalamia_valtoi_slider": null,
-    //     "georgikes_ektaseis_slider": null,
-    //     "ypolimata_kaliergion_slider": null,
-    //     "skoupidotopoi_slider": null,
-        
-    //     "pirosvestiko_soma_slider": null,
-    //     "pezopora_tmimata_slider": null,
-    //     "ethelontes_slider": null,
-    //     "stratos_slider": null,
-    //     "alles_dinameis_slider": null,
-        
-    //     "pirosvestika_oximata_slider": null,
-    //     "oximata_ota_slider": null,
-    //     "vitiofora_slider": null,
-    //     "mixanimata_slider": null,
-        
-    //     "elikoptera_slider": null,
-    //     "CL415_slider": null,
-    //     "CL215_slider": null,
-    //     "PZL_slider": null,
-    //     "GRU_slider": null
-    // };
 
     var locationSearch = {
         "ypiresia": null,
@@ -59,22 +20,61 @@ jQuery(document).ready(function($) {
     }
 
     var burnedLandSearch = {
-        "dasi": null,
-        "dasiki_ektasi": null,
-        "alsi": null,
-        "xort_ektaseis": null,
-        "kalamia_valtoi": null,
-        "georgikes_ektaseis": null,
-        "ypolimata_kaliergion": null,
-        "skoupidotopoi": null
+        "dasi": {
+            "low": null,
+            "high": null
+        },
+        "dasiki_ektasi": {
+            "low": null,
+            "high": null
+        },
+        "alsi": {
+            "low": null,
+            "high": null
+        },
+        "xort_ektaseis": {
+            "low": null,
+            "high": null
+        },
+        "kalamia_valtoi": {
+            "low": null,
+            "high": null
+        },
+        "georgikes_ektaseis": {
+            "low": null,
+            "high": null
+        },
+        "ypolimata_kaliergion": {
+            "low": null,
+            "high": null
+        },
+        "skoupidotopoi": {
+            "low": null,
+            "high": null
+        }
     }
 
     var humanResourcesSearch = {
-        "pirosvestiko_soma": null,
-        "pezopora_tmimata": null,
-        "ethelontes": null,
-        "stratos": null,
-        "alles_dinameis": null
+        "pirosvestiko_soma":{
+            "low": null,
+            "high": null
+        },
+        "pezopora_tmimata":{
+            "low": null,
+            "high": null
+        },
+        "ethelontes":{
+            "low": null,
+            "high": null
+        },
+        "stratos":{
+            "low": null,
+            "high": null
+        },
+        "alles_dinameis":{
+            "low": null,
+            "high": null
+        }
     }
 
     var landVehiclesSearch = {
@@ -99,10 +99,22 @@ jQuery(document).ready(function($) {
         kalamia_valtoi_slider = document.getElementById('kalamia-valtoi'),
         georgikes_ektaseis_slider = document.getElementById('georgikes-ektaseis'),
         ypolimata_kaliergion_slider = document.getElementById('ypolimata-kaliergion'),
-        skoupidotopoi_slider = document.getElementById('skoupidotopoi');
+        skoupidotopoi_slider = document.getElementById('skoupidotopoi'),
+
+        pirosvestiko_soma_slider = document.getElementById('pirosvestiko-soma'),
+        pezopora_tmimata_slider = document.getElementById('pezopora-tmimata'),
+        ethelontes_slider = document.getElementById('ethelontes'),
+        stratos_slider = document.getElementById('stratos'),
+        alles_dinameis_slider = document.getElementById('alles-dinameis');
+
+
+
 
     noUiSlider.create(dasi_slider, {
         start: [ 4000, 17000 ],
+        format: wNumb({
+            decimals: 0,
+        }),
         range: {
             'min': [  0 ],
             'max': [ 21800 ]
@@ -115,12 +127,24 @@ jQuery(document).ready(function($) {
     
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
-    dasi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+    dasi_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
         dasi_nodes[handle].innerHTML = values[handle];
+        values = dasi_slider.noUiSlider.get();
+        
+        burnedLandSearch.dasi.low = values[0];
+        burnedLandSearch.dasi.high = values[1];
+        console.log('dasi:low:'+burnedLandSearch.dasi.low);
+        console.log('dasi:high:'+burnedLandSearch.dasi.high);
     });
+
+
+
 
     noUiSlider.create(dasiki_ektasi_slider, {
         start: [ 4000, 25000 ],
+        format: wNumb({
+            decimals: 0,
+        }),
         range: {
             'min': [  0 ],
             'max': [ 35000 ]
@@ -133,12 +157,25 @@ jQuery(document).ready(function($) {
 
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
-    dasiki_ektasi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+    dasiki_ektasi_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
         dasiki_ektasi_nodes[handle].innerHTML = values[handle];
+        values = dasiki_ektasi_slider.noUiSlider.get();
+        
+        burnedLandSearch.dasiki_ektasi.low = values[0];
+        burnedLandSearch.dasiki_ektasi.high = values[1];
+        console.log('dasikiektasi:low:'+burnedLandSearch.dasiki_ektasi.low);
+        console.log('dasikiektasi:high:'+burnedLandSearch.dasiki_ektasi.high);
     });
 
+
+
+
+
     noUiSlider.create(alsi_slider, {
-        start: [ 4000, 17000 ],
+        start: [ 15, 64 ],
+        format: wNumb({
+            decimals: 0,
+        }),
         range: {
             'min': [  0 ],
             'max': [ 100 ]
@@ -149,18 +186,26 @@ jQuery(document).ready(function($) {
         document.getElementById('alsi-output-max')
     ];
     
-    
-    
-    
-    
-    
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
-    alsi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+    alsi_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
         alsi_nodes[handle].innerHTML = values[handle];
+        values = alsi_slider.noUiSlider.get();
+        
+        burnedLandSearch.alsi.low = values[0];
+        burnedLandSearch.alsi.high = values[1];
+        console.log('alsi:low:'+burnedLandSearch.alsi.low);
+        console.log('alsi:high:'+burnedLandSearch.alsi.high);
     });
+
+
+
+
     noUiSlider.create(xort_ektaseis_slider, {
-        start: [ 4000, 17000 ],
+        start: [ 2000, 8200 ],
+        format: wNumb({
+            decimals: 0,
+        }),
         range: {
             'min': [  0 ],
             'max': [ 13000 ]
@@ -173,11 +218,24 @@ jQuery(document).ready(function($) {
     
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
-    xort_ektaseis_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+    xort_ektaseis_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
         xort_ektaseis_nodes[handle].innerHTML = values[handle];
+        values = xort_ektaseis_slider.noUiSlider.get();
+        
+        burnedLandSearch.xort_ektaseis.low = values[0];
+        burnedLandSearch.xort_ektaseis.high = values[1];
+        console.log('xort_ektaseis:low:'+burnedLandSearch.xort_ektaseis.low);
+        console.log('xort_ektaseis:high:'+burnedLandSearch.xort_ektaseis.high);
     });
+
+
+
+
     noUiSlider.create(kalamia_valtoi_slider, {
-        start: [ 4000, 17000 ],
+        start: [ 700, 3000 ],
+        format: wNumb({
+            decimals: 0,
+        }),
         range: {
             'min': [  0 ],
             'max': [ 4990 ]
@@ -190,11 +248,24 @@ jQuery(document).ready(function($) {
     
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
-    kalamia_valtoi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+    kalamia_valtoi_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
         kalamia_valtoi_nodes[handle].innerHTML = values[handle];
+        values = kalamia_valtoi_slider.noUiSlider.get();
+        
+        burnedLandSearch.kalamia_valtoi.low = values[0];
+        burnedLandSearch.kalamia_valtoi.high = values[1];
+        console.log('kalamia_valtoi:low:'+burnedLandSearch.kalamia_valtoi.low);
+        console.log('kalamia_valtoi:high:'+burnedLandSearch.kalamia_valtoi.high);
     });
+
+
+
+
     noUiSlider.create(georgikes_ektaseis_slider, {
-        start: [ 4000, 17000 ],
+        start: [ 2400, 13000 ],
+        format: wNumb({
+            decimals: 0,
+        }),
         range: {
             'min': [  0 ],
             'max': [ 20000 ]
@@ -207,11 +278,25 @@ jQuery(document).ready(function($) {
     
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
-    georgikes_ektaseis_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+    georgikes_ektaseis_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
         georgikes_ektaseis_nodes[handle].innerHTML = values[handle];
+        values = georgikes_ektaseis_slider.noUiSlider.get();
+        
+        burnedLandSearch.georgikes_ektaseis.low = values[0];
+        burnedLandSearch.georgikes_ektaseis.high = values[1];
+        console.log('georgikes_ektaseis:low:'+burnedLandSearch.georgikes_ektaseis.low);
+        console.log('georgikes_ektaseis:high:'+burnedLandSearch.georgikes_ektaseis.high);
     });
+
+
+
+
+
     noUiSlider.create(ypolimata_kaliergion_slider, {
-        start: [ 4000, 17000 ],
+        start: [ 650, 3000 ],
+        format: wNumb({
+            decimals: 0,
+        }),
         range: {
             'min': [  0 ],
             'max': [ 5000 ]
@@ -224,11 +309,25 @@ jQuery(document).ready(function($) {
     
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
-    ypolimata_kaliergion_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+    ypolimata_kaliergion_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
         ypolimata_kaliergion_nodes[handle].innerHTML = values[handle];
+        values = ypolimata_kaliergion_slider.noUiSlider.get();
+        
+        burnedLandSearch.ypolimata_kaliergion.low = values[0];
+        burnedLandSearch.ypolimata_kaliergion.high = values[1];
+        console.log('ypolimata_kaliergion:low:'+burnedLandSearch.ypolimata_kaliergion.low);
+        console.log('ypolimata_kaliergion:high:'+burnedLandSearch.ypolimata_kaliergion.high);
     });
+
+
+
+
+
     noUiSlider.create(skoupidotopoi_slider, {
-        start: [ 4000, 17000 ],
+        start: [ 10, 60 ],
+        format: wNumb({
+            decimals: 0,
+        }),
         range: {
             'min': [  0 ],
             'max': [ 100 ]
@@ -241,71 +340,169 @@ jQuery(document).ready(function($) {
     
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
-    skoupidotopoi_slider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
+    skoupidotopoi_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
         skoupidotopoi_nodes[handle].innerHTML = values[handle];
+        values = skoupidotopoi_slider.noUiSlider.get();
+        
+        burnedLandSearch.skoupidotopoi.low = values[0];
+        burnedLandSearch.skoupidotopoi.high = values[1];
+        console.log('skoupidotopoi:low:'+burnedLandSearch.skoupidotopoi.low);
+        console.log('skoupidotopoi:high:'+burnedLandSearch.skoupidotopoi.high);
+    });
+
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+    noUiSlider.create(pirosvestiko_soma_slider, {
+        start: [ 4000, 17000 ],
+        format: wNumb({
+            decimals: 0,
+        }),
+        range: {
+            'min': [  0 ],
+            'max': [ 21800 ]
+        }
+    });
+    var pirosvestiko_soma_nodes = [
+        document.getElementById('pirosvestiko-soma-output-min'),
+        document.getElementById('pirosvestiko-soma-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    pirosvestiko_soma_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
+        pirosvestiko_soma_nodes[handle].innerHTML = values[handle];
+        values = pirosvestiko_soma_slider.noUiSlider.get();
+        
+        humanResourcesSearch.pirosvestiko_soma.low = values[0];
+        humanResourcesSearch.pirosvestiko_soma.high = values[1];
+    });
+
+
+
+    noUiSlider.create(pezopora_tmimata_slider, {
+        start: [ 4000, 25000 ],
+        format: wNumb({
+            decimals: 0,
+        }),
+        range: {
+            'min': [  0 ],
+            'max': [ 35000 ]
+        }
+    });
+    var pezopora_tmimata_nodes = [
+        document.getElementById('pezopora-tmimata-output-min'),
+        document.getElementById('pezopora-tmimata-output-max')
+    ];
+
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    pezopora_tmimata_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
+        pezopora_tmimata_nodes[handle].innerHTML = values[handle];
+        values = pezopora_tmimata_slider.noUiSlider.get();
+        
+        humanResourcesSearch.pezopora_tmimata.low = values[0];
+        humanResourcesSearch.pezopora_tmimata.high = values[1];
     });
 
 
 
 
-   /*
-    * When user changes the slider, the sliders id is saved and the '-output'
-    * string is appended at the end to create the id of the sliders output <p>
-    * component. After that the <p> element is selected by id and the the html
-    * is changed.
-    */
-    // $('.slider-start').on('input', function(e){
-    //     var output_id = $(this).attr('id') + '-output';
-    //     $('#' + output_id).html($(e.target).val());
+
+    noUiSlider.create(ethelontes_slider, {
+        start: [ 15, 64 ],
+        format: wNumb({
+            decimals: 0,
+        }),
+        range: {
+            'min': [  0 ],
+            'max': [ 100 ]
+        }
+    });
+    var ethelontes_nodes = [
+        document.getElementById('ethelontes-output-min'),
+        document.getElementById('ethelontes-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    ethelontes_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
+        ethelontes_nodes[handle].innerHTML = values[handle];
+        values = ethelontes_slider.noUiSlider.get();
         
-    //     // To find where it belongs (prosopiko, kameni ektasi, etc...)
-    //     type = output_id.split('-')[0];
-    //     var subVar = $(this).attr('data-type');
-
-    //     if(type == 'kammenes'){
-    //         burnedLandSearch[subVar] = $(e.target).val();
-    //         console.log(burnedLandSearch);
-    //     } else if (type == 'prosopiko'){
-    //         humanResourcesSearch[subVar] = $(e.target).val();
-    //         console.log(humanResourcesSearch);
-    //     } else if (type == 'landveh'){
-    //         landVehiclesSearch[subVar] = $(e.target).val();
-    //         console.log(landVehiclesSearch);
-    //     } else if (type == 'airveh'){
-    //         airVehiclesSearch[subVar] = $(e.target).val();
-    //         console.log(airVehiclesSearch);
-    //     }
-    // });
+        humanResourcesSearch.ethelontes.low = values[0];
+        humanResourcesSearch.ethelontes.high = values[1];
+    });
 
 
-    // $('.slider-end').on('input', function(e){
-    //     var output_id = $(this).attr('id') + '-output';
-    //     $('#' + output_id).html($(e.target).val());
+
+
+    noUiSlider.create(stratos_slider, {
+        start: [ 2000, 8200 ],
+        format: wNumb({
+            decimals: 0,
+        }),
+        range: {
+            'min': [  0 ],
+            'max': [ 13000 ]
+        }
+    });
+    var stratos_nodes = [
+        document.getElementById('stratos-output-min'),
+        document.getElementById('stratos-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    stratos_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
+        stratos_nodes[handle].innerHTML = values[handle];
+        values = stratos_slider.noUiSlider.get();
         
-    //     // To find where it belongs (prosopiko, kameni ektasi, etc...)
-    //     type = output_id.split('-')[0];
-    //     var subVar = $(this).attr('data-type');
+        humanResourcesSearch.stratos.low = values[0];
+        humanResourcesSearch.stratos.high = values[1];
+    });
 
-    //     if(type == 'kammenes'){
-    //         burnedLandSearch[subVar] = $(e.target).val();
-    //         console.log(burnedLandSearch);
-    //     } else if (type == 'prosopiko'){
-    //         humanResourcesSearch[subVar] = $(e.target).val();
-    //         console.log(humanResourcesSearch);
-    //     } else if (type == 'landveh'){
-    //         landVehiclesSearch[subVar] = $(e.target).val();
-    //         console.log(landVehiclesSearch);
-    //     } else if (type == 'airveh'){
-    //         airVehiclesSearch[subVar] = $(e.target).val();
-    //         console.log(airVehiclesSearch);
-    //     }
-    // });
 
+
+
+    noUiSlider.create(alles_dinameis_slider, {
+        start: [ 700, 3000 ],
+        format: wNumb({
+            decimals: 0,
+        }),
+        range: {
+            'min': [  0 ],
+            'max': [ 4990 ]
+        }
+    });
+    var alles_dinameis_nodes = [
+        document.getElementById('alles-dinameis-output-min'),
+        document.getElementById('alles-dinameis-output-max')
+    ];
+    
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+    alles_dinameis_slider.noUiSlider.on('change', function ( values, handle, unencoded, isTap, positions ) {
+        alles_dinameis_nodes[handle].innerHTML = values[handle];
+        values = alles_dinameis_slider.noUiSlider.get();
+        
+        humanResourcesSearch.alles_dinameis.low = values[0];
+        humanResourcesSearch.alles_dinameis.high = values[1];
+    });
+
+
+    $( "#resetBtn" ).click(function() {
+        resetSearch();
+    });
 
 
     $( "#searchBtn" ).click(function() {
         // console.log(locationSearch);
-        console.log(datetimeSearch);
+        // console.log(datetimeSearch);
         // console.log(burnedLandSearch);
         // console.log(humanResourcesSearch);
         // console.log(landVehiclesSearch);
@@ -326,24 +523,63 @@ jQuery(document).ready(function($) {
             time:{
                 ora_arxi: datetimeSearch['ora_arxi'],
                 ora_telous: datetimeSearch['ora_telous']
+            },
+            burnedLand:{
+                dasi:{
+                    low: burnedLandSearch.dasi.low,
+                    high: burnedLandSearch.dasi.high
+                },
+                dasiki_ektasi:{
+                     low: burnedLandSearch.dasiki_ektasi.low,
+                     high: burnedLandSearch.dasiki_ektasi.high
+                },
+                alsi:{
+                     low: burnedLandSearch.alsi.low,
+                     high: burnedLandSearch.alsi.high
+                },
+                xort_ektaseis:{
+                     low: burnedLandSearch.xort_ektaseis.low,
+                     high: burnedLandSearch.xort_ektaseis.high
+                },
+                kalamia_valtoi:{
+                     low: burnedLandSearch.kalamia_valtoi.low,
+                     high: burnedLandSearch.kalamia_valtoi.high
+                },
+                georgikes_ektaseis:{
+                     low: burnedLandSearch.georgikes_ektaseis.low,
+                     high: burnedLandSearch.georgikes_ektaseis.high
+                },
+                ypolimata_kaliergion:{
+                     low: burnedLandSearch.ypolimata_kaliergion.low,
+                     high: burnedLandSearch.ypolimata_kaliergion.high
+                },
+                skoupidotopoi:{
+                     low: burnedLandSearch.skoupidotopoi.low,
+                     high: burnedLandSearch.skoupidotopoi.high
+                }
+            },
+            humanResources:{
+                pirosvestiko_soma:{
+                    low: humanResourcesSearch.pirosvestiko_soma.low,
+                    high: humanResourcesSearch.pirosvestiko_soma.high
+                }, 
+                pezopora_tmimata:{
+                    low: humanResourcesSearch.pezopora_tmimata.low,
+                    high: humanResourcesSearch.pezopora_tmimata.high
+                }, 
+                ethelontes:{
+                    low: humanResourcesSearch.ethelontes.low,
+                    high: humanResourcesSearch.ethelontes.high
+                }, 
+                stratos:{
+                    low: humanResourcesSearch.stratos.low,
+                    high: humanResourcesSearch.stratos.high
+                }, 
+                alles_dinameis:{
+                    low: humanResourcesSearch.alles_dinameis.low,
+                    high: humanResourcesSearch.alles_dinameis.high
+                }
             }
-            // burnedLand:{
-            //     dasi: burnedLandSearch['dasi'],
-            //     dasiki_ektasi: burnedLandSearch['dasiki_ektasi'],
-            //     alsi: burnedLandSearch['alsi'],
-            //     xort_ektaseis: burnedLandSearch['xort_ektaseis'],
-            //     kalamia_valtoi: burnedLandSearch['kalamia_valtoi'],
-            //     georgikes_ektaseis: burnedLandSearch['georgikes_ektaseis'],
-            //     ypolimata_kaliergion: burnedLandSearch['ypolimata_kaliergion'],
-            //     skoupidotopoi: burnedLandSearch['skoupidotopoi']
-            // },
-            // humanResources:{
-            //     pirosvestiko_soma: humanResourcesSearch['pirosvestiko_soma'],
-            //     pezopora_tmimata: humanResourcesSearch['pezopora_tmimata'],
-            //     ethelontes: humanResourcesSearch['ethelontes'],
-            //     stratos: humanResourcesSearch['stratos'],
-            //     alles_dinameis: humanResourcesSearch['alles_dinameis']
-            // },
             // landVehicles:{
             //     pirosvestika_oximata: landVehiclesSearch['pirosvestika_oximata'],
             //     oximata_ota: landVehiclesSearch['oximata_ota'],
@@ -359,16 +595,8 @@ jQuery(document).ready(function($) {
             // }
         }
         
-        
-        $( "#resetBtn" ).click(function() {
-            resetSearch();
-        });
+        console.log(formData);
 
-        // Debug
-        console.log(formData.date.hm_arxi);
-        console.log(formData.date.hm_telous);
-        console.log(formData.time.ora_arxi);
-        console.log(formData.time.ora_telous);
         // Execute ajax request
         $.ajax({
             type: 'POST',
@@ -378,7 +606,7 @@ jQuery(document).ready(function($) {
     
             // If request is successfull
             success: function (response) {
-                console.log(response);
+                //console.log(response);
                 
                 $("#panel-container").html(response);
                 
@@ -389,34 +617,6 @@ jQuery(document).ready(function($) {
             }
         });
     });
-
-    // // Init timepickers
-    // $('#timepicker1').timepicker({
-    //     minuteStep: 1,
-    //     showMeridian: false,
-    //     defaultTime: false
-    // });
-    // $('#timepicker2').timepicker({
-    //     minuteStep: 1,
-    //     showMeridian: false,
-    //     defaultTime: false
-    // });
-
-    // $('#timepicker1').timepicker().on('changeTime.timepicker', function(e) {
-    //     // console.log('The time is ' + e.time.value);
-    //     // console.log('The hour is ' + e.time.hours);
-    //     // console.log('The minute is ' + e.time.minutes);
-    //     // console.log('The meridian is ' + e.time.meridian);
-    //     datetimeSearch.ora_arxi = e.time.value;
-    // });
-    
-    // $('#timepicker2').timepicker().on('changeTime.timepicker', function(e) {
-    //     // console.log('The time is ' + e.time.value);
-    //     // console.log('The hour is ' + e.time.hours);
-    //     // console.log('The minute is ' + e.time.minutes);
-    //     // console.log('The meridian is ' + e.time.meridian);
-    //     datetimeSearch.ora_telous = e.time.value;
-    // });
         
     $('#rangepicker').daterangepicker({
         showDropdowns: true,
@@ -461,243 +661,11 @@ jQuery(document).ready(function($) {
 
     $('#rangepicker').on('cancel.daterangepicker', function(ev, picker) {
         $(this).val('');
+        datetimeSearch.hm_arxi = null;
+        datetimeSearch.ora_arxi = null;
+        datetimeSearch.hm_telous = null;
+        datetimeSearch.ora_telous = null;
     });
-        
-
-
-
-    
-    // // Kameni ektasi
-    // $('#dasi').bootstrapNumber();
-    // $('#dasiki_ektasi').bootstrapNumber();
-    // $('#alsi').bootstrapNumber();
-    // $('#xort_ektaseis').bootstrapNumber();
-    // $('#kalamia_valtoi').bootstrapNumber();
-    // $('#georgikes_ektaseis').bootstrapNumber();
-    // $('#ypolimata_kaliergion').bootstrapNumber();
-    // $('#skoupidotopoi').bootstrapNumber();
-    // // Prosopiko
-    // $('#pirosvestiko_soma').bootstrapNumber();
-    // $('#pezopora_tmimata').bootstrapNumber();
-    // $('#ethelontes').bootstrapNumber();
-    // $('#stratos').bootstrapNumber();
-    // $('#alles_dinameis').bootstrapNumber();
-    // // Oximata
-    // $('#pirosvestika_oximata').bootstrapNumber();
-    // $('#oximata_ota').bootstrapNumber();
-    // $('#vitiofora').bootstrapNumber();
-    // $('#mixanimata').bootstrapNumber();
-    // // Enaeria    
-    // $('#elikoptera').bootstrapNumber();
-    // $('#CL415').bootstrapNumber();
-    // $('#CL215').bootstrapNumber();
-    // $('#PZL').bootstrapNumber();
-    // $('#GRU').bootstrapNumber();
-
-
-    // Sliders
-    // With JQuery
-    // var dasi_slider = new Slider('#dasi_slider', {});
-    // var dasiki_ektasi_slider = new Slider('#dasiki_ektasi_slider', {});
-    // var alsi_slider = new Slider('#alsi_slider', {});
-    // var xort_ektaseis_slider = new Slider('#xort_ektaseis_slider', {});
-    // var kalamia_valtoi_slider = new Slider('#kalamia_valtoi_slider', {});
-    // var georgikes_ektaseis_slider = new Slider('#georgikes_ektaseis_slider', {});
-    // var ypolimata_kaliergion_slider = new Slider('#ypolimata_kaliergion_slider', {});
-    // var skoupidotopoi_slider = new Slider('#skoupidotopoi_slider', {});
-    // var pirosvestiko_soma_slider = new Slider('#pirosvestiko_soma_slider', {});
-    // var pezopora_tmimata_slider = new Slider('#pezopora_tmimata_slider', {});
-    // var ethelontes_slider = new Slider('#ethelontes_slider', {});
-    // var stratos_slider = new Slider('#stratos_slider', {});
-    // var alles_dinameis_slider = new Slider('#alles_dinameis_slider', {});
-    // var pirosvestika_oximata_slider = new Slider('#pirosvestika_oximata_slider', {});    
-    // var oximata_ota_slider = new Slider('#oximata_ota_slider', {});    
-    // var vitiofora_slider = new Slider('#vitiofora_slider', {});    
-    // var mixanimata_slider = new Slider('#mixanimata_slider', {});    
-    // var elikoptera_slider = new Slider('#elikoptera_slider', {});
-    // var CL415_slider = new Slider('#CL415_slider', {});
-    // var CL215_slider = new Slider('#CL215_slider', {});
-    // var PZL_slider = new Slider('#PZL_slider', {});
-    // var GRU_slider = new Slider('#GRU_slider', {});
-
-    // $("[data-toggle='toggle']").click(function() {
-    //     var selector = $(this).data("target");
-    //     $(selector).toggleClass('in');
-    // });
-    // $("#dasi_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         dasi_slider.enable();
-    //     } else {
-    //         dasi_slider.disable();
-    //         searchObj.dasi_slider = null;
-    //     }
-    // })
-    // $("#dasi_slider_enabled").on('slideStop', function(e) {
-    //     // searchObj.dasi_slider = ($this).slider('getValue');
-    //     alert('a');
-    // });
-    // $('#dasi_slider_enabled').slider().on('change', function(event) {
-    //     var a = event.value.newValue;
-    //     var b = event.value.oldValue;
-    
-    //     var changed = !($.inArray(a[0], b) !== -1 && 
-    //                     $.inArray(a[1], b) !== -1 && 
-    //                     $.inArray(b[0], a) !== -1 && 
-    //                     $.inArray(b[1], a) !== -1 && 
-    //                     a.length === b.length);
-    
-    //     if(changed ) {
-    //         console.log('changed');
-    //     }
-    // });
-    
-    // $("#dasiki_ektasi_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         dasiki_ektasi_slider.enable();
-    //     } else {
-    //         dasiki_ektasi_slider.disable();
-    //     }
-    // })
-    // $("#alsi_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         alsi_slider.enable();
-    //     } else {
-    //         alsi_slider.disable();
-    //     }
-    // })
-    // $("#xort_ektaseis_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         xort_ektaseis_slider.enable();
-    //     } else {
-    //         xort_ektaseis_slider.disable();
-    //     }
-    // })
-    // $("#kalamia_valtoi_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         kalamia_valtoi_slider.enable();
-    //     } else {
-    //         kalamia_valtoi_slider.disable();
-    //     }
-    // })
-    // $("#georgikes_ektaseis_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         georgikes_ektaseis_slider.enable();
-    //     } else {
-    //         georgikes_ektaseis_slider.disable();
-    //     }
-    // })
-    // $("#ypolimata_kaliergion_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         ypolimata_kaliergion_slider.enable();
-    //     } else {
-    //         ypolimata_kaliergion_slider.disable();
-    //     }
-    // })
-    // $("#skoupidotopoi_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         skoupidotopoi_slider.enable();
-    //     } else {
-    //         skoupidotopoi_slider.disable();
-    //     }
-    // })
-    // $("#pirosvestiko_soma_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         pirosvestiko_soma_slider.enable();
-    //     } else {
-    //         pirosvestiko_soma_slider.disable();
-    //     }
-    // })
-    // $("#pezopora_tmimata_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         pezopora_tmimata_slider.enable();
-    //     } else {
-    //         pezopora_tmimata_slider.disable();
-    //     }
-    // })
-    // $("#ethelontes_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         ethelontes_slider.enable();
-    //     } else {
-    //         ethelontes_slider.disable();
-    //     }
-    // })
-    // $("#stratos_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         stratos_slider.enable();
-    //     } else {
-    //         stratos_slider.disable();
-    //     }
-    // })
-    // $("#alles_dinameis_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         alles_dinameis_slider.enable();
-    //     } else {
-    //         alles_dinameis_slider.disable();
-    //     }
-    // })
-    // $("#pirosvestika_oximata_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         pirosvestika_oximata_slider.enable();
-    //     } else {
-    //         pirosvestika_oximata_slider.disable();
-    //     }
-    // })
-    // $("#oximata_ota_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         oximata_ota_slider.enable();
-    //     } else {
-    //         oximata_ota_slider.disable();
-    //     }
-    // })
-    // $("#vitiofora_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         vitiofora_slider.enable();
-    //     } else {
-    //         vitiofora_slider.disable();
-    //     }
-    // })
-    // $("#mixanimata_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         mixanimata_slider.enable();
-    //     } else {
-    //         mixanimata_slider.disable();
-    //     }
-    // })
-    // $("#elikoptera_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         elikoptera_slider.enable();
-    //     } else {
-    //         elikoptera_slider.disable();
-    //     }
-    // })
-    // $("#CL415_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         CL415_slider.enable();
-    //     } else {
-    //         CL415_slider.disable();
-    //     }
-    // })
-    // $("#CL215_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         CL215_slider.enable();
-    //     } else {
-    //         CL215_slider.disable();
-    //     }
-    // })
-    // $("#PZL_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         PZL_slider.enable();
-    //     } else {
-    //         PZL_slider.disable();
-    //     }
-    // })
-    // $("#GRU_slider_enabled").click(function(){
-    //     if(this.checked) {
-    //         GRU_slider.enable();
-    //     } else {
-    //         GRU_slider.disable();
-    //     }
-    // })
 
     /* 
      * Run autocomplete
@@ -1001,14 +969,38 @@ function resetSearch(){
     }
 
     var burnedLandSearch = {
-        "dasi": null,
-        "dasiki_ektasi": null,
-        "alsi": null,
-        "xort_ektaseis": null,
-        "kalamia_valtoi": null,
-        "georgikes_ektaseis": null,
-        "ypolimata_kaliergion": null,
-        "skoupidotopoi": null
+        "dasi": {
+            "low": null,
+            "high": null
+        },
+        "dasiki_ektasi": {
+            "low": null,
+            "high": null
+        },
+        "alsi": {
+            "low": null,
+            "high": null
+        },
+        "xort_ektaseis": {
+            "low": null,
+            "high": null
+        },
+        "kalamia_valtoi": {
+            "low": null,
+            "high": null
+        },
+        "georgikes_ektaseis": {
+            "low": null,
+            "high": null
+        },
+        "ypolimata_kaliergion": {
+            "low": null,
+            "high": null
+        },
+        "skoupidotopoi": {
+            "low": null,
+            "high": null
+        }
     }
 
     var humanResourcesSearch = {
@@ -1036,5 +1028,9 @@ function resetSearch(){
 
     $('#rangepicker').on('cancel.daterangepicker', function(ev, picker) {
         $(this).val('');
+        datetimeSearch.hm_arxi = null;
+        datetimeSearch.ora_arxi = null;
+        datetimeSearch.hm_telous = null;
+        datetimeSearch.ora_telous = null;
     });
 }

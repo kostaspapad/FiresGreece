@@ -37,6 +37,7 @@
     <script type="text/javascript" src="{!! asset('js/script.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/nouislider.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/sidebar.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/wNumb.js') !!}"></script>
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
         integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
         crossorigin="">
