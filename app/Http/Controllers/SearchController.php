@@ -199,7 +199,7 @@ class SearchController extends Controller
         //         ->groupBy('dimos', 'geo_address_dimos', 'geo_latitude_dimos','geo_longitude_dimos')
         //         ->get();
 
-        dd($f);
+        //dd($f);
         return response()->json($f);
     }
 }

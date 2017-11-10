@@ -619,7 +619,7 @@ jQuery(document).ready(function($) {
             type: 'POST',
             url: 'searchfires',
             data: formData,
-            dataType: 'html',
+            dataType: 'json',
     
             // If request is successfull
             success: function (response) {
@@ -891,40 +891,47 @@ function showSuggestionsDiefthinsi(message) {
 
 
 /*create array:*/
-var marker = new Array();
+//var marker = new Array();
 
 /*Some Coordinates (here simulating somehow json string)*/
-var items = [{"lat":"51.000","lon":"13.000"},{"lat":"52.000","lon":"13.010"},{"lat":"52.000","lon":"13.020"}];
+//var items = [];
 
 var southWest = L.latLng(40.712, -74.227),  
 northEast = L.latLng(40.774, -74.125),
 mybounds = L.latLngBounds(southWest, northEast);
 
-var map = L.map( 'map', {
-    center: [38.0, 25.0],
-    minZoom: 7,
-    maxZoom: 15,
-    zoom: 6,
-});
-function initMap(){
-    
-    
-    
-    L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+var myLayer = L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     subdomains: ['a', 'b', 'c'],
-    }).addTo( map )
-      
-    //   var myURL = jQuery( 'script[src$="leaf-demo.js"]' ).attr( 'src' ).replace( 'leaf-demo.js', '' )
-      
-    var myIcon = L.icon({
-        maxBounds: mybounds,
-        iconUrl: 'images/flame2.png',
-        iconRetinaUrl: 'images/flame2.png',
-        iconSize: [29, 24],
-        iconAnchor: [9, 21],
-        popupAnchor: [0, -14]
-    })
+});
+
+// var map = L.map( 'map', {
+//     center: [38.0, 25.0],
+//     minZoom: 7,
+//     maxZoom: 15,
+//     zoom: 6,
+// });
+var map = L.map('map')
+.setView([38.0, 25.0], 7)
+.addLayer(myLayer);
+    
+var markers = new L.FeatureGroup();
+
+//   var myURL = jQuery( 'script[src$="leaf-demo.js"]' ).attr( 'src' ).replace( 'leaf-demo.js', '' )
+map.addLayer(markers);
+
+var myIcon = L.icon({
+    maxBounds: mybounds,
+    iconUrl: 'images/flame2.png',
+    iconRetinaUrl: 'images/flame2.png',
+    iconSize: [29, 24],
+    iconAnchor: [9, 21],
+    popupAnchor: [0, -14]
+});
+
+function initMap(){
+    
       // Use this else the server responds with error status code 419
     $.ajaxSetup({
         headers: {
@@ -947,15 +954,14 @@ function initMap(){
                 var a = '<a onclick="moreFireInfo(\'' +  String(response[i].dimos) + '\')">' + String(response[i].geo_address_dimos) + '\nTotal: ' + String(response[i].total) + '</a>'
                 // Create marker object save it to a global array so when the must is updated to delete the marker
                 var LamMarker = new L.marker([response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon});
-                marker.push(LamMarker);
+                //marker.push(LamMarker);
                 
                 // Create marker to map
-                marker[i].bindPopup(a).addTo(map);
-                // L.marker( [response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon} )
-                    
-                //     .bindPopup( a )
-                //     .addTo( map );
-                }
+                //marker[i].bindPopup(a).addTo(map);
+                
+                //LamMarker.bindPopup(a);
+                markers.addLayer(LamMarker);
+            }
         },
 
         // If request was not successfull
@@ -990,17 +996,36 @@ function moreFireInfo(dimos){
     });
 }
 
-
-function updateMap(data){
-    alert('update');
+// After user search execute to update map
+function updateMap(response){
     deleteMarkers();
+    
+    console.log(response);
+    // Update map
+    // Create popup for fire. Has onclick method for ajax request moreFireInfo()
+    for ( var i=0; i < response.length; ++i ){
+        var a = '<a onclick="moreFireInfo(\'' +  String(response[i].dimos) + '\')">' + String(response[i].geo_address_dimos) + '\nTotal: ' + String(response[i].total) + '</a>'
+        // Create marker object save it to a global array so when the must is updated to delete the marker
+        console.log(response[i].geo_latitude_dimos + " " + response[i].geo_longitude_dimos);
+        var LamMarker = new L.marker([response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon});
+        //marker.push(LamMarker);
+        LamMarker.bindPopup(a);
+        markers.addLayer(LamMarker);
+        
+        // Create marker to map
+        //marker[i].bindPopup(a).addTo(map);
+    }
+    // update table below map
+
+    //close sidebar
 }
 
 /*Going through these marker-items again removing them*/
 function deleteMarkers() {
-    for(i=0;i<marker.length;i++) {
-        map.removeLayer(marker[i]);
-    }  
+    // for(i=0;i<marker.length;i++) {
+    //     map.removeLayer(marker[i]);
+    // } 
+    map.removeLayer(markers);
 }
 function resetSearch(){
     var locationSearch = {
