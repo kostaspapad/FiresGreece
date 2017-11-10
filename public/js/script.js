@@ -378,8 +378,10 @@ jQuery(document).ready(function($) {
         pirosvestiko_soma_nodes[handle].innerHTML = values[handle];
         values = pirosvestiko_soma_slider.noUiSlider.get();
         
-        humanResourcesSearch.pirosvestiko_soma.low = values[0];
-        humanResourcesSearch.pirosvestiko_soma.high = values[1];
+        humanResourcesSearch
+        .pirosvestiko_soma.low = values[0];
+        humanResourcesSearch
+        .pirosvestiko_soma.high = values[1];
     });
 
 
@@ -405,8 +407,10 @@ jQuery(document).ready(function($) {
         pezopora_tmimata_nodes[handle].innerHTML = values[handle];
         values = pezopora_tmimata_slider.noUiSlider.get();
         
-        humanResourcesSearch.pezopora_tmimata.low = values[0];
-        humanResourcesSearch.pezopora_tmimata.high = values[1];
+        humanResourcesSearch
+        .pezopora_tmimata.low = values[0];
+        humanResourcesSearch
+        .pezopora_tmimata.high = values[1];
     });
 
 
@@ -434,8 +438,10 @@ jQuery(document).ready(function($) {
         ethelontes_nodes[handle].innerHTML = values[handle];
         values = ethelontes_slider.noUiSlider.get();
         
-        humanResourcesSearch.ethelontes.low = values[0];
-        humanResourcesSearch.ethelontes.high = values[1];
+        humanResourcesSearch
+        .ethelontes.low = values[0];
+        humanResourcesSearch
+        .ethelontes.high = values[1];
     });
 
 
@@ -462,8 +468,10 @@ jQuery(document).ready(function($) {
         stratos_nodes[handle].innerHTML = values[handle];
         values = stratos_slider.noUiSlider.get();
         
-        humanResourcesSearch.stratos.low = values[0];
-        humanResourcesSearch.stratos.high = values[1];
+        humanResourcesSearch
+        .stratos.low = values[0];
+        humanResourcesSearch
+        .stratos.high = values[1];
     });
 
 
@@ -490,8 +498,10 @@ jQuery(document).ready(function($) {
         alles_dinameis_nodes[handle].innerHTML = values[handle];
         values = alles_dinameis_slider.noUiSlider.get();
         
-        humanResourcesSearch.alles_dinameis.low = values[0];
-        humanResourcesSearch.alles_dinameis.high = values[1];
+        humanResourcesSearch
+        .alles_dinameis.low = values[0];
+        humanResourcesSearch
+        .alles_dinameis.high = values[1];
     });
 
 
@@ -508,14 +518,20 @@ jQuery(document).ready(function($) {
         // console.log(landVehiclesSearch);
         // console.log(airVehiclesSearch);
         var formData = {
-            // location:{
-            //     ypiresia: locationSearch['ypiresia'],
-            //     nomos: locationSearch['nomos'],
-            //     dimos: locationSearch['dimos'],
-            //     perioxi: locationSearch['perioxi'],
-            //     dasarxio: locationSearch['dasarxio'],
-            //     diefthinsi: locationSearch['diefthinsi']
-            // },
+            location:{
+                ypiresia: $("#ypiresia").val(),
+                nomos: $("#nomos").val(),
+                dimos: $("#dimos").val(),
+                perioxi: $("#perioxi").val(),
+                dasarxio: $("#dasarxio").val(),
+                diefthinsi: $("#diefthinsi").val()
+                // ypiresia: locationSearch['ypiresia'],
+                // nomos: locationSearch['nomos'],
+                // dimos: locationSearch['dimos'],
+                // perioxi: locationSearch['perioxi'],
+                // dasarxio: locationSearch['dasarxio'],
+                // diefthinsi: locationSearch['diefthinsi']
+            },
             date:{
                 hm_arxi: datetimeSearch['hm_arxi'],
                 hm_telous: datetimeSearch['hm_telous']
@@ -596,8 +612,9 @@ jQuery(document).ready(function($) {
         }
         
         console.log(formData);
-
-        // Execute ajax request
+        
+        // TODO DONT EXECUTE IF USER INPUT NO VALUES
+        // Execute ajax request for user search
         $.ajax({
             type: 'POST',
             url: 'searchfires',
@@ -608,8 +625,8 @@ jQuery(document).ready(function($) {
             success: function (response) {
                 //console.log(response);
                 
-                $("#panel-container").html(response);
-                
+                //$("#panel-container").html(response);
+                updateMap(response);
             },
             // If request was not successfull
             error: function (response) {
@@ -640,25 +657,34 @@ jQuery(document).ready(function($) {
             firstDay: 0
         }
     });
-     
+    
+    // When apply btn is pressed on datepicker
     $('#rangepicker').on('apply.daterangepicker', function(ev, picker) {
         $(this).val(picker.startDate.format('MM/DD/YYYY HH:mm') + ' - ' + picker.endDate.format('MM/DD/YYYY HH:mm'));
         
-        datetimeSearch.hm_arxi = picker.startDate.format('DD-MM-YYYY');
-        datetimeSearch.hm_telous = picker.endDate.format('DD-MM-YYYY');
+        datetimeSearch.hm_arxi = picker.startDate.format('YYYY-MM-DD');
+        datetimeSearch.hm_telous = picker.endDate.format('YYYY-MM-DD');
         
         timeStart = picker.startDate.format('HH:mm');
         timeEnd = picker.endDate.format('HH:mm');
+
         if(timeStart != '00:00'){
             datetimeSearch.ora_arxi = picker.startDate.format('HH:mm');
+        } else {
+            datetimeSearch.ora_arxi = null;
         }
-        if(timeEnd != '23:00'){
+
+        // 23:00 is the default
+        if(timeEnd != '00:00'){
             datetimeSearch.ora_telous = picker.endDate.format('HH:mm');
+        } else {
+            datetimeSearch.ora_telous = null;
         }
 
         console.log(datetimeSearch);
     });
 
+    // When cancel btn is pressed on datepicker
     $('#rangepicker').on('cancel.daterangepicker', function(ev, picker) {
         $(this).val('');
         datetimeSearch.hm_arxi = null;
@@ -863,18 +889,26 @@ function showSuggestionsDiefthinsi(message) {
     $(".searchBoxDiefthinsi").scrollTop(0);
 }
 
+
+/*create array:*/
+var marker = new Array();
+
+/*Some Coordinates (here simulating somehow json string)*/
+var items = [{"lat":"51.000","lon":"13.000"},{"lat":"52.000","lon":"13.010"},{"lat":"52.000","lon":"13.020"}];
+
+var southWest = L.latLng(40.712, -74.227),  
+northEast = L.latLng(40.774, -74.125),
+mybounds = L.latLngBounds(southWest, northEast);
+
+var map = L.map( 'map', {
+    center: [38.0, 25.0],
+    minZoom: 7,
+    maxZoom: 15,
+    zoom: 6,
+});
 function initMap(){
     
-    var southWest = L.latLng(40.712, -74.227),  
-        northEast = L.latLng(40.774, -74.125),
-        mybounds = L.latLngBounds(southWest, northEast);
-
-    var map = L.map( 'map', {
-        center: [38.0, 25.0],
-        minZoom: 7,
-        maxZoom: 15,
-        zoom: 6,
-    })
+    
     
     L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -911,11 +945,16 @@ function initMap(){
             // Create popup for fire. Has onclick method for ajax request moreFireInfo()
             for ( var i=0; i < response.length; ++i ){
                 var a = '<a onclick="moreFireInfo(\'' +  String(response[i].dimos) + '\')">' + String(response[i].geo_address_dimos) + '\nTotal: ' + String(response[i].total) + '</a>'
-
-                L.marker( [response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon} )
+                // Create marker object save it to a global array so when the must is updated to delete the marker
+                var LamMarker = new L.marker([response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon});
+                marker.push(LamMarker);
+                
+                // Create marker to map
+                marker[i].bindPopup(a).addTo(map);
+                // L.marker( [response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon} )
                     
-                    .bindPopup( a )
-                    .addTo( map );
+                //     .bindPopup( a )
+                //     .addTo( map );
                 }
         },
 
@@ -951,6 +990,18 @@ function moreFireInfo(dimos){
     });
 }
 
+
+function updateMap(data){
+    alert('update');
+    deleteMarkers();
+}
+
+/*Going through these marker-items again removing them*/
+function deleteMarkers() {
+    for(i=0;i<marker.length;i++) {
+        map.removeLayer(marker[i]);
+    }  
+}
 function resetSearch(){
     var locationSearch = {
         "ypiresia": null,
