@@ -84,7 +84,7 @@ class SearchController extends Controller
 
         $condition = array();
         
-        //dd($request);
+        // dd($request);
         foreach ($request->all() as $key => $value1) {
 
             // Look for fields that are not date, time or location
@@ -113,32 +113,7 @@ class SearchController extends Controller
 
         }
         
-        // $condition = [
-        //     "hm_arxi" => "2013-05-18",
-        //     #"dasarxio" => "%ΚΑΠΑΝΔΡΙΤΙΟΥ%",
-        //     "dimos" => "Δ. ΩΡΩΠΟΥ"
-        // ];
         //dd($condition);
-        // $query->where([
-        //     ['column_1', '=', 'value_1'],
-        //     ['column_2', '<>', 'value_2'],
-        //     [COLUMN, OPERATOR, VALUE],
-        //     ...
-        // ]);
-        // $f = DB::table('fires')
-        // ->select('id',
-        //          'hm_arxi',
-        //          'hm_telous',
-        //          'diefthinsi')
-        // ->where([
-        //     ['hm_arxi', '>=', '2016-04-05'], ['hm_telous', '<=', '2016-06-05']
-        // ])
-        // ->get();
-
-        // $condition = array(
-        //     'field_1' => '%value_1%',
-        //     'field_2' => '%value_2%'
-        //  );
         
         // Loop on each value pair and dynamicaly create a where clause
         // If date fields are found insert '<|>' conditions
@@ -151,41 +126,41 @@ class SearchController extends Controller
                                ->whereNotNull('dimos')
                                ->where(function($q) use ($condition){
 
-                                foreach($condition as $key1 => $value1){
+                                    foreach($condition as $key1 => $value1){
 
-                                    if ($key1 == 'ypiresia' || $key1 == 'nomos' || $key1 == 'dimos' || $key1 == 'perioxi' || $key1 == 'dasarxio' || $key1 == 'diefthinsi') {
-                                        
-                                        $q->where($key1, '=', $value1);
+                                        if ($key1 == 'ypiresia' || $key1 == 'nomos' || $key1 == 'dimos' || $key1 == 'perioxi' || $key1 == 'dasarxio' || $key1 == 'diefthinsi') {
+                                            
+                                            $q->where($key1, '=', $value1);
 
-                                    } else if ($key1 == 'hm_arxi'){
+                                        } else if ($key1 == 'hm_arxi'){
 
-                                        $q->where($key1, '>', $value1);
+                                            $q->where($key1, '>', $value1);
 
-                                    } else if ($key1 == 'hm_telous') {
+                                        } else if ($key1 == 'hm_telous') {
 
-                                        $q->where($key1, '<', $value1);
+                                            $q->where($key1, '<', $value1);
 
-                                    } else { // For values that have 'low' and 'high' subfields(the slider fields)
-                                        
-                                        foreach ($value1 as $key2 => $value2) {
+                                        } else { // For values that have 'low' and 'high' subfields(the slider fields)
+                                            
+                                            foreach ($value1 as $key2 => $value2) {
 
-                                            if($key2 == 'low'){
+                                                if($key2 == 'low'){
+                                                    // key1 is the database field
+                                                    $q->where($key1, '>=', $value2);
 
-                                                $q->where($key2, '>', $value2);
+                                                } else if($key2 == 'high'){
 
-                                            } else if($key2 == 'high'){
+                                                    $q->where($key1, '<=', $value2);
 
-                                                $q->where($key2, '<', $value2);
-
-                                            } else {
-                                                break;   
-                                            }   
+                                                } else {
+                                                    break;   
+                                                }   
+                                            }
                                         }
-                                    }
-                                }
-                            })
-                            ->groupBy('dimos', 'geo_address_dimos', 'geo_latitude_dimos','geo_longitude_dimos')
-                            ->get();
+                                    };
+                                })
+                                ->groupBy('dimos', 'geo_address_dimos', 'geo_latitude_dimos','geo_longitude_dimos')
+                                ->get();
 
 
         // $f = DB::table('fires')
@@ -203,6 +178,5 @@ class SearchController extends Controller
         return response()->json($f);
     }
 }
-
 
 

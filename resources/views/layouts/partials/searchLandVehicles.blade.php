@@ -1,43 +1,97 @@
-
 <div class="row">
-    <div class="col-md-4">
-        <label class="control-label">ΠΥΡΟΣ. ΟΧΗΜ:</label>
-    </div>
-    <div class="col-md-4">
-        <label class="control-label">ΟΧΗΜ. ΟΤΑ:</label>
+    <div class="col-md-2">
+        <label class="control-label">ΠΥΡΟΣ. ΠΥΡΟΣ. ΟΧΗΜ:</label>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-2">
-                Από:
-            </div>
-            <div class="col-md-2">
-                <p><span id="landveh-pirosvestika-oximata-output">0</span></p>
-            </div>
-            <div class="col-md-8">
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="324" value="0" class="slider-start" data-type="pirosvestika_oximata" id="landveh-dasi">
-                </div>
-            </div>
-        </div>
+    <div class="col-md-8">
+        <div class="slider" id="pirosvestika-oximata"></div>
     </div>
-    
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-2">
-                Έως:
-            </div>
-            <div class="col-md-2">
-                <p><span id="landveh-oximata-ota-output">0</span></p>
-            </div>
-            <div class="col-md-8">
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="60" value="0" class="slider-end" data-type="oximata_ota" id="landveh-oximata-ota">
-                </div>
-            </div>
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="pirosvestika-oximata-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="pirosvestika-oximata-output-max">324</span></p>
+    </div>
+</div>
+<div class="row">
+     <div class="col-md-4">
+        <label class="control-label">ΠΕΖΟΠΟΡΑ ΟΧΗΜ. ΟΤΑ:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="slider" id="oximata-ota"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="oximata-ota-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="oximata-ota-output-max">60</span></p>
+    </div>
+</div>
+<div class="row">
+     <div class="col-md-4">
+        <label class="control-label">ΒΥΤΙΟ- ΦΟΡΑ:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="slider" id="vitiofora"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="vitiofora-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="vitiofora-output-max">15</span></p>
+    </div>
+</div>
+<div class="row">
+     <div class="col-md-4">
+        <label class="control-label">ΜΗΧΑΝΗΜΑΤΑ:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="slider" id="mixanimata"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="mixanimata-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="mixanimata-output-max">26</span></p>
     </div>
 </div>
 
@@ -46,7 +100,7 @@
     <div class="col-md-6">
     {{--  <div class="form-group">  --}}
         <label class="control-label">ΠΥΡΟΣ. ΟΧΗΜ:</label>
-        <input id="pirosvestika_oximata" class="form-control" type="number" value="0" min="0" max="324" />
+        <input id="pirosvestika-oximata" class="form-control" type="number" value="0" min="0" max="324" />
         {{--  <b>0</b> <input id="pirosvestika_oximata_slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="324" data-slider-step="5" data-slider-value="[100,300]" data-slider-enabled="false"/> <b>324</b>
         <input id="pirosvestika_oximata_slider_enabled" class="slider_state" type="checkbox"/> Enabled
     </div>  --}}

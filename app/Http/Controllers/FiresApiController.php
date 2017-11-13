@@ -12,9 +12,10 @@ class FiresApiController extends Controller
         return Fire::all();
     }
 
-    public function show(Fire $fire)
+    public function show($id)
     {
-        return $fire;
+        $fire = Fire::find($id);
+        return response()->json($fire, 200);
     }
 
     public function store(Request $request)

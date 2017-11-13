@@ -43,7 +43,7 @@
         Έως:
     </div>
     <div class="col-md-1">
-        <p><span id="pezopora-tmimata-output-max">745</span></p>
+        <p><span id="pezopora-tmimata-output-max">265</span></p>
     </div>
 </div>
 <div class="row">
@@ -67,7 +67,7 @@
         Έως:
     </div>
     <div class="col-md-1">
-        <p><span id="ethelontes-output-max">745</span></p>
+        <p><span id="ethelontes-output-max">80</span></p>
     </div>
 </div>
 <div class="row">
@@ -91,7 +91,7 @@
         Έως:
     </div>
     <div class="col-md-1">
-        <p><span id="stratos-output-max">745</span></p>
+        <p><span id="stratos-output-max">150</span></p>
     </div>
 </div>
 <div class="row">
@@ -115,6 +115,6 @@
         Έως:
     </div>
     <div class="col-md-1">
-        <p><span id="alles-dinameis-output-max">745</span></p>
+        <p><span id="alles-dinameis-output-max">190</span></p>
     </div>
 </div>

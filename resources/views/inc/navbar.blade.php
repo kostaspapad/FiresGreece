@@ -19,8 +19,6 @@
                 &nbsp;
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="/fires">Fire Map</a></li>
-                <li><a href="/search">Search</a></li>
                 <li><a href="/about">About</a></li>
             </ul>
         </div>

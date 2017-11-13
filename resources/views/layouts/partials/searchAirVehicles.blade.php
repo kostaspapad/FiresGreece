@@ -1,42 +1,121 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-2">
         <label class="control-label">ΕΛΙΚΟ-ΠΤΕΡΑ:</label>
     </div>
-    <div class="col-md-4">
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="slider" id="elikoptera"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="elikoptera-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="elikoptera-output-max">7</span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
         <label class="control-label">Α/Φ CL415:</label>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-2">
-                Από:
-            </div>
-            <div class="col-md-2">
-                <p><span id="airveh-elikoptera-output">0</span></p>
-            </div>
-            <div class="col-md-8">
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="7" value="0" class="slider-start" data-type="elikoptera" id="airveh-elikoptera">
-                </div>
-            </div>
-        </div>
+    <div class="col-md-8">
+        <div class="slider" id="CL415"></div>
     </div>
-    
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-2">
-                Έως:
-            </div>
-            <div class="col-md-2">
-                <p><span id="airveh-CL415-output">0</span></p>
-            </div>
-            <div class="col-md-8">
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="10" value="0" class="slider-end" data-type="CL415" id="airveh-CL415">
-                </div>
-            </div>
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="CL415-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="CL415-output-max">10</span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label class="control-label">Α/Φ CL215:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="slider" id="CL215"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="CL215-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="CL215-output-max">20</span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label class="control-label">Α/Φ PZL:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="slider" id="PZL"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="PZL-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="PZL-output-max">12</span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label class="control-label">Α/Φ GRU:</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="slider" id="GRU"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        Από:
+    </div>
+    <div class="col-md-1">
+        <p><span id="GRU-output-min">0</span></p>
+    </div>
+    <div class="col-md-1">
+        Έως:
+    </div>
+    <div class="col-md-1">
+        <p><span id="GRU-output-max">4</span></p>
     </div>
 </div>
 <!---

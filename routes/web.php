@@ -23,6 +23,9 @@ Route::post('fires', 'FiresController@store');
 Route::put('fires/{fire}', 'FiresController@update');
 Route::delete('fires/{fire}', 'FiresController@delete');
 
+// API
+Route::get('api/fires/{id}', 'FiresApiController@show');
+
 // Gets initial geolocation data
 Route::get('initgeodata', 'FiresController@getInitGeoData');
 

@@ -92,7 +92,32 @@
         <main id="container" class="container">
             <div id="map" style="height: 100%; border: 1px solid #AAA;"></div>
             <!-- pretend long content -->
-            <div style="height: 2000px;"></div>
+            <div style="height: 2000px;">
+                <table class="table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Δάση</th>
+                            <th>Δασική έκταση</th>
+                            <th>Άλση</th>
+                            <th>Χορτ-Εκτάσεις</th>
+                            <th>Καλάμια/Βάλτοι</th>
+                            <th>Γεωργικές εκτάσεις</th>
+                            <th>Υπολήματα καλιεργιών</th>
+                            <th>Σκουπιδότοποι</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
 </div>
@@ -352,28 +377,3 @@ body.sidebar-show {
 }
 
 </style>
-{{--  
-<table class="table-responsive">
-            <thead>
-                <tr>
-                    <th>Δάση</th>
-                    <th>Δασική έκταση</th>
-                    <th>Άλση</th>
-                    <th>Χορτ-Εκτάσεις</th>
-                    <th>Καλάμια/Βάλτοι</th>
-                    <th>Γεωργικές εκτάσεις</th>
-                    <th>Υπολήματα καλιεργιών</th>
-                    <th>Σκουπιδότοποι</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>  --}}
