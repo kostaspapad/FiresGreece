@@ -604,7 +604,7 @@ jQuery(document).ready(function($) {
         datetimeSearch.hm_telous = null;
         datetimeSearch.ora_telous = null;
     });
-
+ 
     /* 
      * Run autocomplete
      */
