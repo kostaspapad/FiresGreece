@@ -83,7 +83,6 @@ class FiresApiController extends Controller
 
     public function dateStartEnd($dateStart, $dateEnd)
     {
-       
         $fires = Fire::whereDate('hm_arxi', '>=', $dateStart)
             ->whereDate('hm_telous', '<=', $dateEnd)
             ->get();

@@ -35,14 +35,14 @@ Route::get('api/fires/province/{province}', 'FiresApiController@province');
 Route::get('api/fires/location/{location}', 'FiresApiController@location');
 Route::get('api/fires/municipality/{municipality}', 'FiresApiController@municipality');
 Route::get('api/fires/address/{address}', 'FiresApiController@address');
-
-
 Route::get('api/fires/datefrom/{datefrom}/dateto/{date}', 'FiresApiController@dateFromTo');
 Route::get('api/fires/datestartend/{datestart}/dateend/{dateend}', 'FiresApiController@dateStartEnd');
 
 
 // Gets initial geolocation data
 Route::get('initgeodata', 'FiresController@getInitGeoData');
+
+Route::get('getchartdata', 'FiresController@getChartData');
 
 // Get fire info for location on map
 Route::post('getcitiesdimos', 'FiresController@getCitiesDimos');

@@ -2,6 +2,7 @@
 jQuery(document).ready(function($) {
     
     initMap();
+    renderChart();
 
     var formData = null;
     // var locationSearch = {
@@ -825,8 +826,8 @@ var myLayer = L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
 //     zoom: 6,
 // });
 var map = L.map('map')
-.setView([38.0, 25.0], 7)
-.addLayer(myLayer);
+    .setView([38.0, 25.0], 7)
+    .addLayer(myLayer);
     
 var markers = new L.FeatureGroup();
 
@@ -863,13 +864,18 @@ function initMap(){
             
             // Create popup for fire. Has onclick method for ajax request moreFireInfo()
             for ( var i=0; i < response.length; ++i ){
-                var a = '<a onclick="moreFireInfo(\'' +  String(response[i].dimos) + '\')">' + String(response[i].geo_address_dimos) + '\nTotal: ' + String(response[i].total) + '</a>'
+                var a = '<a onclick="moreFireInfo(\'' +
+                    String(response[i].dimos) +
+                    '\')">' +
+                    String(response[i].geo_address_dimos) +
+                    '\nTotal: ' + String(response[i].total) + '</a>';
+
                 // Create marker object save it to a global array so when the must is updated to delete the marker
                 var LamMarker = new L.marker([response[i].geo_latitude_dimos, response[i].geo_longitude_dimos], {icon: myIcon});
-                //marker.push(LamMarker);
+                marker.push(LamMarker);
                 
                 // Create marker to map
-                //marker[i].bindPopup(a).addTo(map);
+                marker[i].bindPopup(a).addTo(map);
                 
                 //LamMarker.bindPopup(a);
                 markers.addLayer(LamMarker);
@@ -881,6 +887,47 @@ function initMap(){
             console.log(response);
         }
     });    
+}
+
+function renderChart(){
+    // Execute ajax request
+    $.ajax({
+        type: 'GET',
+        url: 'getchartdata',
+        dataType: 'json',
+
+        success: function (data) {
+            var options = {
+                title: {
+                    text: 'Fires by date'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: 'Fires'
+                    }
+                },
+                series: [{
+                    name: 'Fires count',
+                    type: 'column',
+                    color: 'red',
+                    data: []
+                }]
+            };
+            for (var i = 0; i < data.length; i++){
+            
+                options.xAxis.categories.push(data[i].date);
+                options.series[0].data.push(data[i].data);
+            };
+
+            $('#chartContainer').highcharts(options);
+        }
+    }); 
 }
 
 function moreFireInfo(dimos){
@@ -1212,4 +1259,7 @@ function resetSearch(){
         datetimeSearch.hm_telous = null;
         datetimeSearch.ora_telous = null;
     });
+
+
+    
 }

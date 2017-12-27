@@ -78,4 +78,14 @@ class FiresController extends Controller
             return view('layouts.partials.location_fire_table')->with('fires', $fires);   
        }
 
+       public function getChartData(){
+            
+            $chart = DB::table('fires')
+                ->select('hm_arxi as date', 
+                    DB::raw('count(nomos) as data'))
+                ->groupBy('hm_arxi')
+                ->get();
+
+            return response()->json($chart);
+       }
 }

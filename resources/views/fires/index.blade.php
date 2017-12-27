@@ -91,7 +91,8 @@
     <div class="wrapper">
         <main id="container" class="container">
             <div id="map" style="height: 100%; border: 1px solid #AAA;"></div>
-            <!-- pretend long content -->
+            <div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <!-- pretend long content 
             <div style="height: 2000px;">
                 <table class="table-responsive">
                     <thead>
@@ -116,13 +117,13 @@
                             <td></td>
                         </tr>
                     </tbody>
-                </table>
-            </div>
+                </table> 
+            </div>-->
         </main>
     </div>
 </div>
 @endsection
-z
+
 <style>
 /* for styling only */
 

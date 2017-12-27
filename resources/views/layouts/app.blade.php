@@ -52,6 +52,8 @@
     <script type="text/javascript" src="{!! asset('js/bootstrap-timepicker.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/bootstrap-number-input.js') !!}"></script>
     {{--  <script type="text/javascript" src="{!! asset('js/bootstrap-slider.min.js') !!}"></script>  --}}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
     
     
 </body>
